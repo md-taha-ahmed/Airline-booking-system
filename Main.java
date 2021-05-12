@@ -1,33 +1,25 @@
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import helper.*;
 import models.Flight;
 import models.Passenger;
 import models.Ticket;
+import models.controllers.BookingController;
 
 public class Main {
     public static void main(String[] args) {
         Byte choice;
-        ArrayList<Flight> flightList = new ArrayList<Flight>();
-        flightList.add(new Flight(10, "london", "BLR", LocalDateTime.of(2021, 3, 4, 6, 30),
-                LocalDateTime.of(2021, 3, 5, 6, 30), 1200.60));
-        flightList.add(new Flight(10, "jeddah", "BLR", LocalDateTime.of(2021, 3, 4, 6, 30),
-                LocalDateTime.of(2021, 3, 5, 6, 30), 1200.60));
+        BookingController controller = new BookingController();
 
-        flightList.add(new Flight(10, "new york", "BLR", LocalDateTime.of(2021, 3, 4, 6, 30),
-                LocalDateTime.of(2021, 3, 5, 6, 30), 1200.60));
-        Flight flight = new Flight(10, "new york", "BLR", LocalDateTime.of(2021, 3, 4, 6, 30),
-                LocalDateTime.of(2021, 3, 5, 6, 30), 1200.60);
-        Passenger passenger = new Passenger("fullName", "passportNo", 19, "yemen");
-        Ticket ticket = new Ticket(passenger, flight);
         //
         for (;;) {
             System.out.println("*********** Welcome to the flight ticket purchase system!************");
             System.out.println();
             System.out.println("*********************************************************************");
             System.out.println("**************************** 1. List all flights ********************");
-            System.out.println("**************************** 2. Inquire by departure time ***********");
+            System.out.println("**************************** 2. Add flight **************************");
             System.out.println("**************************** 3. Query by destination ****************");
             System.out.println("**************************** 4. Delete flight************************");
             System.out.println("**************************** 5. Update flight************************");
@@ -41,19 +33,20 @@ public class Main {
             switch (choice) {
                 case 1:
                     // System.out.println("List all flights");
-                    System.out.println("********************************************************************");
-                    for (Flight flight1 : flightList) {
-                        flight1.DisplayFlightDetail();
-                        System.out.println("********************************************************************");
-
-                    }
-
+                    controller.displayFlightsDetails();
                     break;
                 case 2:
-                    System.out.println("Inquire by departure time");
+                    controller.addFlight();
+                    // flightList.add(Flight().SetFlightDetail());
                     break;
                 case 3:
-                    System.out.println("Query by destination");
+
+                    System.out.println("Enter the timing of arrival in format: yyyy-MM-dd HH:mm");
+                    Helper.scan.nextLine();
+                    String ArrivalScanner = Helper.scan.nextLine();
+                    LocalDateTime date = Helper.validateDateTime(ArrivalScanner);
+                    System.out.println(date);
+
                     break;
                 case 4:
                     System.out.println("Delete flight");
