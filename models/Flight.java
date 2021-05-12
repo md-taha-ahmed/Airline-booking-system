@@ -5,6 +5,7 @@ import java.time.*;
 
 import helper.Helper;
 
+
 public class Flight {
     int id;
     String flightNo;
@@ -14,8 +15,7 @@ public class Flight {
     LocalDateTime departure;
     LocalDateTime arrival;
     Double price;
-    String DepartureScanner;
-    String ArrivalScanner;
+
 
     public String getFlightNo() {
         return this.flightNo;
@@ -73,21 +73,6 @@ public class Flight {
         this.price = price;
     }
 
-    public String getDepartureScanner() {
-        return this.DepartureScanner;
-    }
-
-    public void setDepartureScanner(String DepartureScanner) {
-        this.DepartureScanner = DepartureScanner;
-    }
-
-    public String getArrivalScanner() {
-        return this.ArrivalScanner;
-    }
-
-    public void setArrivalScanner(String ArrivalScanner) {
-        this.ArrivalScanner = ArrivalScanner;
-    }
 
     public Flight(String flightNo, int capacity, String from, String to, LocalDateTime departure, LocalDateTime arrival,
             Double price) {
@@ -111,4 +96,6 @@ public class Flight {
 
     }
 
+   
+  
 }
