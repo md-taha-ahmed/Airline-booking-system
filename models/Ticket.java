@@ -6,6 +6,23 @@ public class Ticket {
     public Passenger passenger;
     public Flight flight;
 
+	public Passenger getPassenger() {
+		return this.passenger;
+	}
+
+	public void setPassenger(Passenger passenger) {
+		this.passenger = passenger;
+	}
+
+	public Flight getFlight() {
+		return this.flight;
+	}
+
+	public void setFlight(Flight flight) {
+		this.flight = flight;
+	}
+
+
     public Ticket(Passenger passenger, Flight flight) {
         this.id = Helper.getId();
         this.flight = flight;
