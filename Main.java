@@ -1,6 +1,7 @@
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import helper.*;
 import models.Flight;
@@ -11,7 +12,9 @@ import models.controllers.BookingController;
 public class Main {
     public static void main(String[] args) {
         Byte choice;
+        String ArrivalScanner;
         BookingController controller = new BookingController();
+        Scanner scan = new Scanner(System.in);
 
         //
         for (;;) {
@@ -28,7 +31,7 @@ public class Main {
             System.out.println("**************************** 8. Exit the system**********************");
             System.out.println("*********************************************************************");
             System.out.print("Please select the serial number to be operated:");
-            choice = Helper.scan.nextByte();
+            choice = scan.nextByte();
 
             switch (choice) {
                 case 1:
@@ -42,11 +45,10 @@ public class Main {
                 case 3:
 
                     System.out.println("Enter the timing of arrival in format: yyyy-MM-dd HH:mm");
-                    Helper.scan.nextLine();
-                    String ArrivalScanner = Helper.scan.nextLine();
-                    LocalDateTime date = Helper.validateDateTime(ArrivalScanner);
-                    System.out.println(date);
 
+                    ArrivalScanner = scan.nextLine();
+                    System.out.println("A=" + ArrivalScanner);
+                    Helper.validateDateTime(ArrivalScanner);
                     break;
                 case 4:
                     System.out.println("Delete flight");

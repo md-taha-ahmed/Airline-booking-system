@@ -1,10 +1,8 @@
 package helper;
 
 import java.util.Scanner;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Random;
 
 public class Helper {
@@ -13,27 +11,19 @@ public class Helper {
         return random.nextInt(Integer.SIZE - 1);
     }
 
-    public static final Scanner scan = new Scanner(System.in);
+    static Scanner scan = new Scanner(System.in);
 
-    public static LocalDateTime validateDateTime(String inputTimeString) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-        LocalDateTime temp;
-        if (!inputTimeString.matches("^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$")){
-            System.out.println("Invalid time string: " + inputTimeString);
-       } 
-        // try {
-        //     LocalDateTime.parse(inputTimeString, formatter);
+    public static void validateDateTime(String input) {
+        try {
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
-        // } catch (DateTimeParseException | NullPointerException e) {
-        //     System.out.println(inputTimeString
-        //             + "is  Invalid  Date and time format please Enter the date and time in this format yyyy-MM-dd HH:mm ");
-        //     // Helper.scan.nextLine();
-        //     inputTimeString = Helper.scan.nextLine();
-        //     System.out.println(inputTimeString);
-        //     validateDateTime(in);
-        // }
-        temp = LocalDateTime.parse(inputTimeString, formatter);
-        return temp;
-
+            format.parse(input);
+        } catch (ParseException e) {
+            String newInput;
+            newInput = scan.nextLine();
+            System.out.println(
+                    "You've Entered an  invalid date and time format please Enter the date and time in this format yyyy-MM-dd HH:mm ");
+            validateDateTime(newInput);
+        }
     }
 }
