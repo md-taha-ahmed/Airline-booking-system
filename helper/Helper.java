@@ -11,12 +11,11 @@ public class Helper {
         return random.nextInt(Integer.SIZE - 1);
     }
 
-    static Scanner scan = new Scanner(System.in);
+   public final static Scanner scan = new Scanner(System.in);
 
     public static void validateDateTime(String input) {
         try {
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-
             format.parse(input);
         } catch (ParseException e) {
             String newInput;
