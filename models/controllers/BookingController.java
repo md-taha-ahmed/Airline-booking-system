@@ -25,6 +25,7 @@ public class BookingController {
 
     public void addFlight() {
         System.out.println("Enter the flight ID:");
+        Helper.scan.nextLine();
         String flightNo = Helper.scan.nextLine();
         System.out.println("Enter the capacity");
         int capacity = Helper.scan.nextInt();
@@ -32,25 +33,23 @@ public class BookingController {
         Helper.scan.nextLine();
         String from = Helper.scan.nextLine();
         System.out.println("Enter to where the flight will go");
-        // Helper.scan.nextLine();
         String to = Helper.scan.nextLine();
         System.out.println("Enter the timing of arrival in format: yyyy-MM-dd HH:mm");
-        // Helper.scan.nextLine();
         String ArrivalScanner = Helper.scan.nextLine();
         Helper.validateDateTime(ArrivalScanner);
         DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-
         LocalDateTime date = LocalDateTime.parse(ArrivalScanner, format);
         LocalDateTime arrival = date;
-        // System.out.println("Enter the timing of arrival in format: yyyy-MM-dd
-        // HH:mm");
+        System.out.println("Enter the timing of arrival in format: yyyy-MM-dd HH:mm");
         // Helper.scan.nextLine();
-        // String departureScanner = Helper.scan.nextLine();
-        // date = validateDateTime(departureScanner);
-        // var departure = date;
+        String departureScanner = Helper.scan.nextLine();
+        Helper.validateDateTime(departureScanner);
+        format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        date = LocalDateTime.parse(departureScanner, format);
+        LocalDateTime departure = date;
         System.out.println("Enter the price ");
         var price = Helper.scan.nextDouble();
-        flightList.add(new Flight(flightNo, capacity, from, to, arrival, arrival, price));
+        flightList.add(new Flight(flightNo, capacity, from, to, arrival, departure, price));
 
     }
 
