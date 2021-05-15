@@ -11,7 +11,7 @@ public class Helper {
         return random.nextInt(Integer.SIZE - 1);
     }
 
-   public final static Scanner scan = new Scanner(System.in);
+    public final static Scanner scan = new Scanner(System.in);
 
     public static void validateDateTime(String input) {
         try {
@@ -19,9 +19,10 @@ public class Helper {
             format.parse(input);
         } catch (ParseException e) {
             String newInput;
-            newInput = scan.nextLine();
             System.out.println(
                     "You've Entered an  invalid date and time format please Enter the date and time in this format yyyy-MM-dd HH:mm ");
+                    System.out.print("");
+                        newInput = scan.nextLine();
             validateDateTime(newInput);
         }
     }
