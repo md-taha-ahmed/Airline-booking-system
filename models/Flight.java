@@ -1,10 +1,7 @@
 package models;
 
-import java.text.Format;
 import java.time.*;
-
 import helper.Helper;
-
 
 public class Flight {
     int id;
@@ -15,7 +12,6 @@ public class Flight {
     LocalDateTime departure;
     LocalDateTime arrival;
     Double price;
-
 
     public String getFlightNo() {
         return this.flightNo;
@@ -73,7 +69,6 @@ public class Flight {
         this.price = price;
     }
 
-
     public Flight(String flightNo, int capacity, String from, String to, LocalDateTime departure, LocalDateTime arrival,
             Double price) {
         this.id = Helper.getId();
@@ -96,6 +91,4 @@ public class Flight {
 
     }
 
-   
-  
 }
