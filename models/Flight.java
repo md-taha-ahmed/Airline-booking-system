@@ -78,7 +78,7 @@ public class Flight {
         this.to = to;
         this.departure = departure;
         this.arrival = arrival;
-
+        this.price = price;
     }
 
     public void DisplayFlightDetail() {
@@ -87,6 +87,7 @@ public class Flight {
         System.out.println("to: " + to);
         System.out.println("departure: " + departure);
         System.out.println("Arrival: " + arrival);
+        System.out.println("Price " + price);
         System.out.println("No.available tickets");
 
     }
