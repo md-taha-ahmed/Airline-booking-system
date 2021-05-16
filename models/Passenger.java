@@ -1,7 +1,8 @@
 package models;
 
 import java.util.Scanner;
-import helper.Helper;
+
+import tools.Helper;
 
 public class Passenger {
     int id;
@@ -52,6 +53,7 @@ public class Passenger {
 
     public boolean setPassengerDetails() {
         Scanner in = new Scanner(System.in);
+        in.close();
         return true;
     }
 

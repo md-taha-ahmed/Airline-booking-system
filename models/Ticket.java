@@ -1,5 +1,5 @@
 package models;
-import helper.Helper;
+import tools.Helper;
 
 public class Ticket {
     int id;
