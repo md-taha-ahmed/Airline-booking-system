@@ -1,12 +1,15 @@
-package models.controllers;
+package controllers;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
-import helper.Helper;
+import com.google.gson.Gson;
+
 import models.Flight;
 import models.Ticket;
+import tools.Helper;
+import tools.Validation;
 
 public class BookingController {
     ArrayList<Flight> flightList = new ArrayList<Flight>();
@@ -36,13 +39,13 @@ public class BookingController {
         String to = Helper.scan.nextLine();
         System.out.println("Enter the timing of arrival in format: yyyy-MM-dd HH:mm");
         String ArrivalScanner = Helper.scan.nextLine();
-        Helper.validateDateTime(ArrivalScanner);
+        Validation.validateDateTime(ArrivalScanner);
         DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         LocalDateTime date = LocalDateTime.parse(ArrivalScanner, format);
         LocalDateTime arrival = date;
         System.out.println("Enter the timing of arrival in format: yyyy-MM-dd HH:mm");
         String departureScanner = Helper.scan.nextLine();
-        Helper.validateDateTime(departureScanner);
+        Validation.validateDateTime(departureScanner);
         format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         date = LocalDateTime.parse(departureScanner, format);
         LocalDateTime departure = date;
@@ -73,7 +76,12 @@ public class BookingController {
             System.out.println("********************************************************************");
 
         }
+    }
 
+    public void test() {
+        Gson gson = new Gson();
+        String temp = gson.toJson(flightList);
+        System.out.println(temp);
     }
 
 }
