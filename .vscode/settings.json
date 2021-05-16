@@ -1,5 +1,9 @@
 {
     "java.project.sourcePaths": [
         ""
+    ],
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "/home/md-taha/Code/java/Airline_booking_system/lib/gson-2.8.5.jar"
     ]
 }
