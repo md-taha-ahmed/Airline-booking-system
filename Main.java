@@ -11,9 +11,9 @@ public class Main {
             System.out.println("*********** Welcome to the flight ticket purchase system!************");
             System.out.println();
             System.out.println("*********************************************************************");
-            System.out.println("**************************** 1. List all flights ********************");
-            System.out.println("**************************** 2. Add flight **************************");
-            System.out.println("**************************** 3. Query by destination ****************");
+            System.out.println("**************************** 1. List All Flights ********************");
+            System.out.println("**************************** 2. Add Flight **************************");
+            System.out.println("**************************** 3. Delete Flight ***********************");
             System.out.println("**************************** 4. Delete flight************************");
             System.out.println("**************************** 5. Update flight************************");
             System.out.println("**************************** 6. Ticketing system*********************");

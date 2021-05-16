@@ -41,7 +41,6 @@ public class BookingController {
         LocalDateTime date = LocalDateTime.parse(ArrivalScanner, format);
         LocalDateTime arrival = date;
         System.out.println("Enter the timing of arrival in format: yyyy-MM-dd HH:mm");
-        // Helper.scan.nextLine();
         String departureScanner = Helper.scan.nextLine();
         Helper.validateDateTime(departureScanner);
         format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
@@ -53,10 +52,24 @@ public class BookingController {
 
     }
 
+    public void deleteFlight() {
+        int index;
+        displayFlightsDetails();
+        System.out.println("Enter the number of the flight that you want to delete:");
+        index = Helper.scan.nextInt();
+        var deleted = flightList.remove(index - 1);
+        System.out.println("the deleted flight:");
+        deleted.DisplayFlightDetail();
+
+    }
+
     public void displayFlightsDetails() {
+        int index = 1;
         System.out.println("********************************************************************");
         for (Flight flight : flightList) {
+            System.out.println(index + ":-");
             flight.DisplayFlightDetail();
+            index++;
             System.out.println("********************************************************************");
 
         }
