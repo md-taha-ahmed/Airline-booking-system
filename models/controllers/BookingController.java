@@ -71,7 +71,7 @@ public class BookingController {
             flight.DisplayFlightDetail();
             index++;
             System.out.println("********************************************************************");
-        
+
         }
 
     }
