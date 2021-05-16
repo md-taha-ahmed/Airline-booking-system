@@ -1,0 +1,209 @@
+{
+    "flightList": [
+        {
+            "id": 12,
+            "flightNo": "SUD520",
+            "capacity": 10,
+            "from": "jeddah",
+            "to": "BLR",
+            "departure": {
+                "date": {
+                    "year": 2021,
+                    "month": 3,
+                    "day": 4
+                },
+                "time": {
+                    "hour": 6,
+                    "minute": 30,
+                    "second": 0,
+                    "nano": 0
+                }
+            },
+            "arrival": {
+                "date": {
+                    "year": 2021,
+                    "month": 3,
+                    "day": 5
+                },
+                "time": {
+                    "hour": 6,
+                    "minute": 30,
+                    "second": 0,
+                    "nano": 0
+                }
+            },
+            "price": 1200.6
+        },
+        {
+            "id": 27,
+            "flightNo": "L900",
+            "capacity": 10,
+            "from": "new york",
+            "to": "BLR",
+            "departure": {
+                "date": {
+                    "year": 2021,
+                    "month": 3,
+                    "day": 4
+                },
+                "time": {
+                    "hour": 6,
+                    "minute": 30,
+                    "second": 0,
+                    "nano": 0
+                }
+            },
+            "arrival": {
+                "date": {
+                    "year": 2021,
+                    "month": 3,
+                    "day": 5
+                },
+                "time": {
+                    "hour": 6,
+                    "minute": 30,
+                    "second": 0,
+                    "nano": 0
+                }
+            },
+            "price": 1200.6
+        },
+        {
+            "id": 20,
+            "flightNo": "BL405",
+            "capacity": 10,
+            "from": "new york",
+            "to": "BLR",
+            "departure": {
+                "date": {
+                    "year": 2021,
+                    "month": 3,
+                    "day": 4
+                },
+                "time": {
+                    "hour": 6,
+                    "minute": 30,
+                    "second": 0,
+                    "nano": 0
+                }
+            },
+            "arrival": {
+                "date": {
+                    "year": 2021,
+                    "month": 3,
+                    "day": 5
+                },
+                "time": {
+                    "hour": 6,
+                    "minute": 30,
+                    "second": 0,
+                    "nano": 0
+                }
+            },
+            "price": 1200.6
+        },
+        {
+            "id": 40,
+            "flightNo": "BL405",
+            "capacity": 10,
+            "from": "new york",
+            "to": "BLR",
+            "departure": {
+                "date": {
+                    "year": 2021,
+                    "month": 3,
+                    "day": 4
+                },
+                "time": {
+                    "hour": 6,
+                    "minute": 30,
+                    "second": 0,
+                    "nano": 0
+                }
+            },
+            "arrival": {
+                "date": {
+                    "year": 2021,
+                    "month": 3,
+                    "day": 5
+                },
+                "time": {
+                    "hour": 6,
+                    "minute": 30,
+                    "second": 0,
+                    "nano": 0
+                }
+            },
+            "price": 1200.6
+        },
+        {
+            "id": 50,
+            "flightNo": "BL405",
+            "capacity": 10,
+            "from": "new york",
+            "to": "BLR",
+            "departure": {
+                "date": {
+                    "year": 2021,
+                    "month": 3,
+                    "day": 4
+                },
+                "time": {
+                    "hour": 6,
+                    "minute": 30,
+                    "second": 0,
+                    "nano": 0
+                }
+            },
+            "arrival": {
+                "date": {
+                    "year": 2021,
+                    "month": 3,
+                    "day": 5
+                },
+                "time": {
+                    "hour": 6,
+                    "minute": 30,
+                    "second": 0,
+                    "nano": 0
+                }
+            },
+            "price": 1200.6
+        },
+        {
+            "id": 27,
+            "flightNo": "k217",
+            "capacity": 231,
+            "from": "uuu",
+            "to": "yyy",
+            "departure": {
+                "date": {
+                    "year": 1111,
+                    "month": 11,
+                    "day": 11
+                },
+                "time": {
+                    "hour": 11,
+                    "minute": 11,
+                    "second": 0,
+                    "nano": 0
+                }
+            },
+            "arrival": {
+                "date": {
+                    "year": 1111,
+                    "month": 11,
+                    "day": 11
+                },
+                "time": {
+                    "hour": 11,
+                    "minute": 11,
+                    "second": 0,
+                    "nano": 0
+                }
+            },
+            "price": 12000.9
+        }
+    ],
+    "tickets": []
+}
