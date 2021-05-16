@@ -24,7 +24,7 @@ public class BookingController {
     }
 
     public void addFlight() {
-        System.out.println("Enter the flight ID:");
+        System.out.println("Enter the flight Number:");
         Helper.scan.nextLine();
         String flightNo = Helper.scan.nextLine();
         System.out.println("Enter the capacity");
@@ -71,7 +71,7 @@ public class BookingController {
             flight.DisplayFlightDetail();
             index++;
             System.out.println("********************************************************************");
-
+        
         }
 
     }
