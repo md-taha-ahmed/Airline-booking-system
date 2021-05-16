@@ -31,6 +31,7 @@ public class Main {
                     controller.addFlight();
                     break;
                 case 3:
+                controller.deleteFlight();
                     break;
                 case 4:
                     break;
