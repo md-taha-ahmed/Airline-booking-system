@@ -1,11 +1,11 @@
-import helper.*;
-import models.controllers.BookingController;
+import com.google.gson.Gson;
+import controllers.BookingController;
+import tools.*;
 
 public class Main {
     public static void main(String[] args) {
         Byte choice;
-        BookingController controller = new BookingController();
-
+        BookingController controller = Data.loadData();
         //
         for (;;) {
             System.out.println("*********** Welcome to the flight ticket purchase system!************");
@@ -22,7 +22,6 @@ public class Main {
             System.out.println("*********************************************************************");
             System.out.print("Please select the serial number to be operated:");
             choice = Helper.scan.nextByte();
-
             switch (choice) {
                 case 1:
                     controller.displayFlightsDetails();
@@ -31,21 +30,35 @@ public class Main {
                     controller.addFlight();
                     break;
                 case 3:
-                controller.deleteFlight();
+                    controller.deleteFlight();
                     break;
                 case 4:
+                    int num;
+                    num = Helper.scan.nextInt();
+                    Helper.scan.nextLine();
+                    boolean check = Validation.intIsEmpty(num);
+                    System.out.println(check);
                     break;
                 case 5:
                     System.out.println("Update flight");
                     break;
                 case 6:
-                    System.out.println("Ticketing system");
                     break;
                 case 7:
                     System.out.println("Refund system");
                     break;
                 case 8:
-                    return;
+                    Gson gson = new Gson();
+                    var data = gson.toJson(controller);
+                    if (Data.savingData(data)) {
+                        System.out.println("Success...");
+
+                        return;
+                    } else {
+                        System.out.println("Something went wrong !!! plz try again...");
+
+                        break;
+                    }
 
                 default:
                     System.out.println("You've enter the wrong number!!!");
@@ -55,4 +68,5 @@ public class Main {
         }
 
     }
+
 }
