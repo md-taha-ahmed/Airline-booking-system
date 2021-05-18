@@ -33,10 +33,10 @@ public class Main {
                     controller.deleteFlight();
                     break;
                 case 4:
-                  
+                    controller.bookTicket();
                     break;
                 case 5:
-                    System.out.println("Update flight");
+                    controller.displayTickets();
                     break;
                 case 6:
                     break;
