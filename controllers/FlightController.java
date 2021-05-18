@@ -15,17 +15,6 @@ public class FlightController {
     ArrayList<Flight> flightList = new ArrayList<Flight>();
     ArrayList<Ticket> tickets = new ArrayList<Ticket>();
 
-    public FlightController() {
-        flightList.add(new Flight("K12", 10, "london", "BLR", LocalDateTime.of(2021, 3, 4, 6, 30),
-                LocalDateTime.of(2021, 3, 5, 6, 30), 1200.60));
-        flightList.add(new Flight("SUD520", 10, "jeddah", "BLR", LocalDateTime.of(2021, 3, 4, 6, 30),
-                LocalDateTime.of(2021, 3, 5, 6, 30), 1200.60));
-        flightList.add(new Flight("BL405", 10, "new york", "BLR", LocalDateTime.of(2021, 3, 4, 6, 30),
-                LocalDateTime.of(2021, 3, 5, 6, 30), 1200.60));
-        flightList.add(new Flight("L900", 10, "new york", "BLR", LocalDateTime.of(2021, 3, 4, 6, 30),
-                LocalDateTime.of(2021, 3, 5, 6, 30), 1200.60));
-    }
-
     public void addFlight() {
         System.out.println("Enter the flight Number:");
         Helper.scan.nextLine();
