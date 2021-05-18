@@ -33,7 +33,7 @@ public class Ticket {
         System.out.println("Flight details: ");
         flight.DisplayFlightDetail();
         System.out.println("Passenger details: ");
-        passenger.displayPassengerDetails();
+        passenger.DisplayPassengerDetails();
 
     }
 }

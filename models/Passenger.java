@@ -57,11 +57,14 @@ public class Passenger {
         return true;
     }
 
-    public void displayPassengerDetails() {
+    public void DisplayPassengerDetails() {
         System.out.println("Full name: " + fullName);
         System.out.println("passport No: " + passportNo);
         System.out.println("age: " + age);
         System.out.println("Nationality: " + nationality);
 
     }
+   
+ 
+    
 }
