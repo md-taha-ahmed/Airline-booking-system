@@ -6,11 +6,11 @@ import java.io.FileWriter;
 
 import com.google.gson.Gson;
 
-import controllers.BookingController;
+import controllers.FlightController;
 
 public class Data {
-    public static BookingController loadData() {
-        BookingController controller = new BookingController();
+    public static FlightController loadData() {
+        FlightController controller = new FlightController();
         try {
             BufferedReader reader = new BufferedReader(new FileReader("data.json"));
             StringBuilder stringBuilder = new StringBuilder();
@@ -27,7 +27,7 @@ public class Data {
             String content = stringBuilder.toString();
 
             Gson gson = new Gson();
-            controller = gson.fromJson(content, BookingController.class);
+            controller = gson.fromJson(content, FlightController.class);
 
         } catch (Exception e) {
             System.out.println(e);

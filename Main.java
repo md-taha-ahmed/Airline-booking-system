@@ -1,11 +1,11 @@
 import com.google.gson.Gson;
-import controllers.BookingController;
+import controllers.FlightController;
 import tools.*;
 
 public class Main {
     public static void main(String[] args) {
         Byte choice;
-        BookingController controller = Data.loadData();
+        FlightController controller = Data.loadData();
         //
         for (;;) {
             System.out.println("*********** Welcome to the flight ticket purchase system!************");
@@ -14,11 +14,11 @@ public class Main {
             System.out.println("**************************** 1. List All Flights ********************");
             System.out.println("**************************** 2. Add Flight **************************");
             System.out.println("**************************** 3. Delete Flight ***********************");
-            System.out.println("**************************** 4. Delete flight************************");
-            System.out.println("**************************** 5. Update flight************************");
+            System.out.println("**************************** 4. Book A Ticket ***********************");
+            System.out.println("**************************** 5. Update flight ***********************");
             System.out.println("**************************** 6. Ticketing system*********************");
-            System.out.println("**************************** 7. Refund system************************");
-            System.out.println("**************************** 8. Exit the system**********************");
+            System.out.println("**************************** 7. Refund system ***********************");
+            System.out.println("**************************** 8. Exit the system *********************");
             System.out.println("*********************************************************************");
             System.out.print("Please select the serial number to be operated:");
             choice = Helper.scan.nextByte();
@@ -33,11 +33,7 @@ public class Main {
                     controller.deleteFlight();
                     break;
                 case 4:
-                    int num;
-                    num = Helper.scan.nextInt();
-                    Helper.scan.nextLine();
-                    boolean check = Validation.intIsEmpty(num);
-                    System.out.println(check);
+                  
                     break;
                 case 5:
                     System.out.println("Update flight");
