@@ -1,11 +1,11 @@
 import com.google.gson.Gson;
-import controllers.FlightController;
+import controllers.BookingController;
 import tools.*;
 
 public class Main {
     public static void main(String[] args) {
         Byte choice;
-        FlightController controller = Data.loadData();
+        BookingController controller = Data.loadData();
         //
         for (;;) {
             System.out.println("*********** Welcome to the flight ticket purchase system!************");

@@ -13,6 +13,7 @@ public class Flight {
     LocalDateTime departure;
     LocalDateTime arrival;
     Double price;
+
     public String getFlightNo() {
         return this.flightNo;
     }
@@ -88,8 +89,16 @@ public class Flight {
         System.out.println("departure: " + departure);
         System.out.println("Arrival: " + arrival);
         System.out.println("Price " + price);
-        System.out.println("No.available tickets");
+        System.out.println("available tickets: " + capacity);
 
+    }
+
+    public Boolean bookFlight() {
+        if (this.capacity > 0) {
+            this.capacity--;
+            return true;
+        }
+        return false;
     }
 
 }
