@@ -11,11 +11,11 @@ import models.Ticket;
 import tools.Helper;
 import tools.Validation;
 
-public class BookingController {
+public class FlightController {
     ArrayList<Flight> flightList = new ArrayList<Flight>();
     ArrayList<Ticket> tickets = new ArrayList<Ticket>();
 
-    public BookingController() {
+    public FlightController() {
         flightList.add(new Flight("K12", 10, "london", "BLR", LocalDateTime.of(2021, 3, 4, 6, 30),
                 LocalDateTime.of(2021, 3, 5, 6, 30), 1200.60));
         flightList.add(new Flight("SUD520", 10, "jeddah", "BLR", LocalDateTime.of(2021, 3, 4, 6, 30),
@@ -77,11 +77,4 @@ public class BookingController {
 
         }
     }
-
-    public void test() {
-        Gson gson = new Gson();
-        String temp = gson.toJson(flightList);
-        System.out.println(temp);
-    }
-
 }
