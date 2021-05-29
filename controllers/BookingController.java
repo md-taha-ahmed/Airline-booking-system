@@ -45,26 +45,14 @@ public class BookingController {
 
     }
 
-    public void deleteFlight() {
-        int index;
-        displayFlightsDetails();
-        System.out.println("Enter the number of the flight that you want to delete:");
-        index = Helper.scan.nextInt();
-        var deleted = flightList.remove(index - 1);
-        System.out.println("the deleted flight:");
-        deleted.DisplayFlightDetail();
-
-    }
-
     public void displayFlightsDetails() {
         int index = 1;
-        System.out.println("********************************************************************");
+        System.out.println("*********************************************************************");
         for (Flight flight : flightList) {
             System.out.println(index + ":-");
             flight.DisplayFlightDetail();
             index++;
-            System.out.println("********************************************************************");
-
+            System.out.println("*********************************************************************");
         }
     }
 
@@ -73,7 +61,6 @@ public class BookingController {
         Helper.scan.nextLine();
         String fullName = Helper.scan.nextLine();
         System.out.println("Enter the Passenger's passport :");
-        // Helper.scan.nextLine();
         String passportNo = Helper.scan.nextLine();
         System.out.println("Enter the passenger's age");
         int age = Helper.scan.nextInt();
@@ -100,14 +87,48 @@ public class BookingController {
 
     public void displayTickets() {
         int index = 1;
-        System.out.println("********************************************************************");
+        System.out.println("--------------------------------------------------------------------");
         for (Ticket ticket : ticketList) {
             System.out.println(index + ":-");
             ticket.displayDetails();
             index++;
-            System.out.println("********************************************************************");
-
+            System.out.println("--------------------------------------------------------------------");
         }
     }
 
+    public void cancelTicket() {
+        int index;
+        displayTickets();
+        System.out.println("Enter the number of the ticket that you want to delete:");
+        index = Helper.scan.nextInt();
+        var d = getFlightIndexById(ticketList.get(index - 1).flight.getId());
+        var deleted = ticketList.remove(index-1);
+        System.out.println("the deleted ticket:");
+        deleted.displayDetails();
+        flightList.get(d).cancelFlight();
+    }
+
+    public void deleteFlight() {
+        int index;
+        displayFlightsDetails();
+        System.out.println("Enter the number of the flight that you want to delete:");
+        index = Helper.scan.nextInt();
+        var deleted = flightList.remove(index - 1);
+        System.out.println("the deleted flight:");
+        deleted.DisplayFlightDetail();
+
+    }
+
+    private int getFlightIndexById(int input) {
+        int index = -1;
+        for (Flight flight : flightList) {
+            var id = flight.getId();
+
+            if (id == input) {
+                index = flightList.indexOf(flight);
+
+            }
+        }
+        return index;
+    }
 }
