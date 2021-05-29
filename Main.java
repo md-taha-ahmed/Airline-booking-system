@@ -15,8 +15,8 @@ public class Main {
             System.out.println("**************************** 2. Add Flight **************************");
             System.out.println("**************************** 3. Delete Flight ***********************");
             System.out.println("**************************** 4. Book A Ticket ***********************");
-            System.out.println("**************************** 5. Update flight ***********************");
-            System.out.println("**************************** 6. Ticketing system*********************");
+            System.out.println("**************************** 5. List All Ticket *********************");
+            System.out.println("**************************** 6. Cancel A Ticket *********************");
             System.out.println("**************************** 7. Refund system ***********************");
             System.out.println("**************************** 8. Exit the system *********************");
             System.out.println("*********************************************************************");
@@ -39,6 +39,7 @@ public class Main {
                     controller.displayTickets();
                     break;
                 case 6:
+                controller.cancelTicket();
                     break;
                 case 7:
                     System.out.println("Refund system");

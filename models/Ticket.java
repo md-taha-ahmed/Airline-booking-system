@@ -31,9 +31,11 @@ public class Ticket {
 
     public void displayDetails() {
         System.out.println("Flight details: ");
-        flight.DisplayFlightDetail();
+        // System.out.println("--------------------------------------------------------------------");
+        flight.DisplayFlightDetailInTicket();
+        // System.out.println("*********************************************************************");
         System.out.println("Passenger details: ");
         passenger.DisplayPassengerDetails();
-
+        
     }
 }
