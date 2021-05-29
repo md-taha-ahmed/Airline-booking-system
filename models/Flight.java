@@ -13,6 +13,9 @@ public class Flight {
     LocalDateTime departure;
     LocalDateTime arrival;
     Double price;
+    public int getId() {
+        return id;
+    }
 
     public String getFlightNo() {
         return this.flightNo;
@@ -84,13 +87,32 @@ public class Flight {
 
     public void DisplayFlightDetail() {
         System.out.println("flight No: " + flightNo);
+        // System.out.println("--------------------------------------------------------------------");
         System.out.println("from: " + from);
+        // System.out.println("--------------------------------------------------------------------");
         System.out.println("to: " + to);
+        // System.out.println("--------------------------------------------------------------------");
         System.out.println("departure: " + departure);
+        // System.out.println("--------------------------------------------------------------------");
         System.out.println("Arrival: " + arrival);
+        // System.out.println("--------------------------------------------------------------------");
         System.out.println("Price " + price);
+        // System.out.println("--------------------------------------------------------------------");
         System.out.println("available tickets: " + capacity);
-
+        // System.out.println("--------------------------------------------------------------------");
+    }
+    public void DisplayFlightDetailInTicket() {
+        System.out.println("flight No: " + flightNo);
+        // System.out.println("--------------------------------------------------------------------");
+        System.out.println("from: " + from);
+        // System.out.println("--------------------------------------------------------------------");
+        System.out.println("to: " + to);
+        // System.out.println("--------------------------------------------------------------------");
+        System.out.println("departure: " + departure);
+        // System.out.println("--------------------------------------------------------------------");
+        System.out.println("Arrival: " + arrival);
+        // System.out.println("--------------------------------------------------------------------");
+        System.out.println("Price " + price);
     }
 
     public Boolean bookFlight() {
@@ -100,5 +122,9 @@ public class Flight {
         }
         return false;
     }
-
+     
+    public boolean cancelFlight(){
+        this.capacity++;
+        return true;
+    }
 }
