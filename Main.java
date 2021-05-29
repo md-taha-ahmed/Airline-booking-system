@@ -5,7 +5,7 @@ import tools.*;
 public class Main {
     public static void main(String[] args) {
         Byte choice;
-        BookingController controller = Data.loadData();
+        BookingController controller = Storage.loadData();
         //
         for (;;) {
             System.out.println("*********** Welcome to the flight ticket purchase system!************");
@@ -47,7 +47,7 @@ public class Main {
                 case 8:
                     Gson gson = new Gson();
                     var data = gson.toJson(controller);
-                    if (Data.savingData(data)) {
+                    if (Storage.savingData(data)) {
                         System.out.println("Success...");
 
                         return;

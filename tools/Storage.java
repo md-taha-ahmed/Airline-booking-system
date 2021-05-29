@@ -7,8 +7,7 @@ import java.io.FileWriter;
 import com.google.gson.Gson;
 
 import controllers.BookingController;
-
-public class Data {
+public class Storage {
     public static BookingController loadData() {
         BookingController controller = new BookingController();
         try {
