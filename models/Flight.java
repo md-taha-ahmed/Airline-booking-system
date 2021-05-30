@@ -98,10 +98,10 @@ public class Flight {
         this.id = Helper.getId();
         this.flightNo = flightNo;
         this.capacity = capacity;
-        this.from = from.toLowerCase();
-        this.fromCode=fromCode.toUpperCase();
-        this.to = to.toLowerCase();
-        this.toCode= toCode.toUpperCase();
+        this.from = from.toLowerCase().trim();
+        this.fromCode=fromCode.toUpperCase().trim();
+        this.to = to.toLowerCase().trim();
+        this.toCode= toCode.toUpperCase().trim();
         this.departure = departure;
         this.arrival = arrival;
         this.price = price;
