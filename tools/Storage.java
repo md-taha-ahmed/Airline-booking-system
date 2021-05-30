@@ -7,11 +7,13 @@ import java.io.FileWriter;
 import com.google.gson.Gson;
 
 import controllers.BookingController;
+
 public class Storage {
     public static BookingController loadData() {
         BookingController controller = new BookingController();
         try {
             BufferedReader reader = new BufferedReader(new FileReader("data.json"));
+            /* String */
             StringBuilder stringBuilder = new StringBuilder();
             String line = null;
             String ls = System.getProperty("line.separator");

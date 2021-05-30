@@ -6,7 +6,6 @@ public class Main {
     public static void main(String[] args) {
         Byte choice;
         BookingController controller = Storage.loadData();
-        //
         for (;;) {
             System.out.println("*********** Welcome to the flight ticket purchase system!************");
             System.out.println();
@@ -54,7 +53,7 @@ public class Main {
                     break;
                 case 10:
                     Gson gson = new Gson();
-                    var data = gson.toJson(controller);
+                    String data = gson.toJson(controller);
                     if (Storage.savingData(data)) {
                         System.out.println("Success...");
 
