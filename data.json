@@ -5,8 +5,8 @@
             "flightNo": "SUD520",
             "capacity": 0,
             "from": "jeddah",
-            "fromCode": "JED",
             "to": "Bangalore",
+            "fromCode": "JED",
             "toCode": "BLR",
             "departure": {
                 "date": {
@@ -42,6 +42,8 @@
             "capacity": 9,
             "from": "new york",
             "to": "BLR",
+            "fromCode": "JED",
+            "toCode": "BLR",
             "departure": {
                 "date": {
                     "year": 2021,
@@ -76,6 +78,8 @@
             "capacity": 10,
             "from": "new york",
             "to": "BLR",
+            "fromCode": "JED",
+            "toCode": "BLR",
             "departure": {
                 "date": {
                     "year": 2021,
@@ -110,6 +114,8 @@
             "capacity": 10,
             "from": "new york",
             "to": "BLR",
+            "fromCode": "JED",
+            "toCode": "BLR",
             "departure": {
                 "date": {
                     "year": 2021,
@@ -144,6 +150,8 @@
             "capacity": 10,
             "from": "new york",
             "to": "BLR",
+            "fromCode": "JED",
+            "toCode": "BLR",
             "departure": {
                 "date": {
                     "year": 2021,
@@ -171,6 +179,42 @@
                 }
             },
             "price": 1200.6
+        },
+        {
+            "id": 28,
+            "flightNo": "aaa",
+            "capacity": 111,
+            "from": "bbb",
+            "to": "ddd",
+            "fromCode": "CCC",
+            "toCode": "FFF",
+            "departure": {
+                "date": {
+                    "year": 1111,
+                    "month": 11,
+                    "day": 11
+                },
+                "time": {
+                    "hour": 11,
+                    "minute": 11,
+                    "second": 0,
+                    "nano": 0
+                }
+            },
+            "arrival": {
+                "date": {
+                    "year": 1111,
+                    "month": 11,
+                    "day": 11
+                },
+                "time": {
+                    "hour": 11,
+                    "minute": 11,
+                    "second": 0,
+                    "nano": 0
+                }
+            },
+            "price": 1111.11
         }
     ],
     "ticketList": [
@@ -189,6 +233,8 @@
                 "capacity": 10,
                 "from": "new york",
                 "to": "BLR",
+                "fromCode": "JED",
+                "toCode": "BLR",
                 "departure": {
                     "date": {
                         "year": 2021,
