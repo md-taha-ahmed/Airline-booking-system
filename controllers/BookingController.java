@@ -3,9 +3,6 @@ package controllers;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-
-import com.google.gson.Gson;
-
 import models.Flight;
 import models.Passenger;
 import models.Ticket;
@@ -25,23 +22,27 @@ public class BookingController {
         System.out.println("Enter from where the flight will go ");
         Helper.scan.nextLine();
         String from = Helper.scan.nextLine();
+        System.out.println("Enter from where the flight will go in airport code");
+        String fromCode = Helper.scan.nextLine();
         System.out.println("Enter to where the flight will go");
         String to = Helper.scan.nextLine();
+        System.out.println("Enter to where the flight will go in airport code");
+        String toCode = Helper.scan.nextLine();
         System.out.println("Enter the timing of arrival in format: yyyy-MM-dd HH:mm");
-        String ArrivalScanner = Helper.scan.nextLine();
+        String ArrivalScanner = Helper.scan.nextLine().trim();
         Validation.validateDateTime(ArrivalScanner);
         DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         LocalDateTime date = LocalDateTime.parse(ArrivalScanner, format);
         LocalDateTime arrival = date;
         System.out.println("Enter the timing of arrival in format: yyyy-MM-dd HH:mm");
-        String departureScanner = Helper.scan.nextLine();
+        String departureScanner = Helper.scan.nextLine().trim();
         Validation.validateDateTime(departureScanner);
         format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         date = LocalDateTime.parse(departureScanner, format);
         LocalDateTime departure = date;
         System.out.println("Enter the price ");
         var price = Helper.scan.nextDouble();
-        flightList.add(new Flight(flightNo, capacity, from, to, arrival, departure, price));
+        flightList.add(new Flight(flightNo, capacity, from, fromCode, to, toCode, arrival, departure, price));
 
     }
 
@@ -102,7 +103,7 @@ public class BookingController {
         System.out.println("Enter the number of the ticket that you want to delete:");
         index = Helper.scan.nextInt();
         var d = getFlightIndexById(ticketList.get(index - 1).flight.getId());
-        var deleted = ticketList.remove(index-1);
+        var deleted = ticketList.remove(index - 1);
         System.out.println("the deleted ticket:");
         deleted.displayDetails();
         flightList.get(d).cancelFlight();
@@ -131,4 +132,32 @@ public class BookingController {
         }
         return index;
     }
+
+    public void searchForFlight() {
+        System.out.println(
+                "please select only one format to pass the name of city (Airport code or the real name of the city )  ");
+        System.out.println("Enter from where that flight you want to book:");
+        Helper.scan.nextLine();
+        String from = Helper.scan.nextLine();
+        System.out.println("Enter to where that flight you want to book:");
+        String to = Helper.scan.nextLine();
+        System.out.println("Enter the timing of flight in format: yyyy-MM-dd HH:mm");
+        String time = Helper.scan.nextLine().trim();
+        Validation.validateDateTime(time);
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        LocalDateTime date = LocalDateTime.parse(time, format);
+        for (Flight flight : flightList) {
+            if ((flight.getFrom().equals(from.toLowerCase().trim()) && flight.getTo().equals(to.toLowerCase().trim())
+                    && flight.getArrival().equals(date))
+                    || (flight.getFromCode().equals(from.toUpperCase().trim())
+                            && flight.getToCode().equals(to.toUpperCase().trim())
+                            && flight.getArrival().equals(date))) {
+                System.out.println("Found!!!");
+                flight.DisplayFlightDetail();
+                return;
+            }
+        }
+        System.out.println("Not Found!!!");
+    }
+
 }

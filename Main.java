@@ -17,8 +17,10 @@ public class Main {
             System.out.println("**************************** 4. Book A Ticket ***********************");
             System.out.println("**************************** 5. List All Ticket *********************");
             System.out.println("**************************** 6. Cancel A Ticket *********************");
-            System.out.println("**************************** 7. Refund system ***********************");
-            System.out.println("**************************** 8. Exit the system *********************");
+            System.out.println("**************************** 7. Search For A flight *****************");
+            System.out.println("**************************** 8. Empty *******************************");
+            System.out.println("**************************** 9. Empty *******************************");
+            System.out.println("**************************** 10. Exit the system ********************");
             System.out.println("*********************************************************************");
             System.out.print("Please select the serial number to be operated:");
             choice = Helper.scan.nextByte();
@@ -39,12 +41,18 @@ public class Main {
                     controller.displayTickets();
                     break;
                 case 6:
-                controller.cancelTicket();
+                    controller.cancelTicket();
                     break;
                 case 7:
-                    System.out.println("Refund system");
+                    controller.searchForFlight();
                     break;
                 case 8:
+                    System.out.println("Empty");
+                    break;
+                case 9:
+                    System.out.println("Empty");
+                    break;
+                case 10:
                     Gson gson = new Gson();
                     var data = gson.toJson(controller);
                     if (Storage.savingData(data)) {
