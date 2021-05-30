@@ -5,7 +5,9 @@
             "flightNo": "SUD520",
             "capacity": 0,
             "from": "jeddah",
-            "to": "BLR",
+            "fromCode": "JED",
+            "to": "Bangalore",
+            "toCode": "BLR",
             "departure": {
                 "date": {
                     "year": 2021,

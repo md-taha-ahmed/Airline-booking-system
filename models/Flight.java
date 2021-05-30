@@ -10,9 +10,29 @@ public class Flight {
     int capacity;
     String from;
     String to;
+    String fromCode;
+    String toCode;
+
+    public String getFromCode() {
+        return this.fromCode;
+    }
+
+    public void setFromCode(String fromCode) {
+        this.fromCode = fromCode;
+    }
+
+    public String getToCode() {
+        return this.toCode;
+    }
+
+    public void setToCode(String toCode) {
+        this.toCode = toCode;
+    }
+
     LocalDateTime departure;
     LocalDateTime arrival;
     Double price;
+
     public int getId() {
         return id;
     }
@@ -73,13 +93,15 @@ public class Flight {
         this.price = price;
     }
 
-    public Flight(String flightNo, int capacity, String from, String to, LocalDateTime departure, LocalDateTime arrival,
+    public Flight(String flightNo, int capacity, String from,String fromCode, String to,String toCode, LocalDateTime departure, LocalDateTime arrival,
             Double price) {
         this.id = Helper.getId();
         this.flightNo = flightNo;
         this.capacity = capacity;
-        this.from = from;
-        this.to = to;
+        this.from = from.toLowerCase();
+        this.fromCode=fromCode.toUpperCase();
+        this.to = to.toLowerCase();
+        this.toCode= toCode.toUpperCase();
         this.departure = departure;
         this.arrival = arrival;
         this.price = price;
@@ -88,9 +110,9 @@ public class Flight {
     public void DisplayFlightDetail() {
         System.out.println("flight No: " + flightNo);
         // System.out.println("--------------------------------------------------------------------");
-        System.out.println("from: " + from);
+        System.out.println("from: " + from + " " + fromCode);
         // System.out.println("--------------------------------------------------------------------");
-        System.out.println("to: " + to);
+        System.out.println("to: " + to + " " + toCode);
         // System.out.println("--------------------------------------------------------------------");
         System.out.println("departure: " + departure);
         // System.out.println("--------------------------------------------------------------------");
@@ -101,12 +123,13 @@ public class Flight {
         System.out.println("available tickets: " + capacity);
         // System.out.println("--------------------------------------------------------------------");
     }
+
     public void DisplayFlightDetailInTicket() {
         System.out.println("flight No: " + flightNo);
         // System.out.println("--------------------------------------------------------------------");
-        System.out.println("from: " + from);
+        System.out.println("from: " + from + " " + fromCode);
         // System.out.println("--------------------------------------------------------------------");
-        System.out.println("to: " + to);
+        System.out.println("to: " + to + " " + toCode);
         // System.out.println("--------------------------------------------------------------------");
         System.out.println("departure: " + departure);
         // System.out.println("--------------------------------------------------------------------");
@@ -122,8 +145,8 @@ public class Flight {
         }
         return false;
     }
-     
-    public boolean cancelFlight(){
+
+    public boolean cancelFlight() {
         this.capacity++;
         return true;
     }
