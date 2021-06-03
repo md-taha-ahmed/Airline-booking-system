@@ -1,8 +1,7 @@
 package models;
 
 import tools.Helper;
-import java.io.File;
-import java.time.ZonedDateTime;
+import java.time.LocalDateTime;
 import java.util.Calendar;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDDocumentInformation;
@@ -50,13 +49,11 @@ public class Ticket {
 
     public void printTicketToPdf() {
         try {
-            ZonedDateTime date = ZonedDateTime.now(Helper.zoneId);
+            LocalDateTime date = LocalDateTime.now();
             String line = "-----------------------------------------------------";
             PDDocument document = new PDDocument();
             PDPage blankPage = new PDPage();
             document.addPage(blankPage);
-            // File file = new File("Tickets/" + passenger.fullName +"_"+this.id+ ".pdf");
-            // PDDocument document = PDDocument.load(file);
             PDImageXObject pdImage = PDImageXObject.createFromFile("logo/AMC Travels-logos_black.png", document);
             PDPage page = document.getPage(0);
             PDPageContentStream contents = new PDPageContentStream(document, page);
@@ -91,11 +88,9 @@ public class Ticket {
             contents.newLine();
             contents.showText("Price :" + " " + this.flight.price);
             contents.newLine();
-            contents.showText("Time of the arrival :" + " " +
-            Helper.dateToStringFormatter(this.flight.arrival));
+            contents.showText("Time of the arrival :" + " " + Helper.dateToStringFormatter(this.flight.arrival));
             contents.newLine();
-            contents.showText("Time of the departure :" + " " +
-            Helper.dateToStringFormatter(this.flight.departure));
+            contents.showText("Time of the departure :" + " " + Helper.dateToStringFormatter(this.flight.departure));
             contents.newLine();
             contents.showText(line);
             contents.newLine();

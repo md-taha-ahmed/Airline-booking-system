@@ -1,6 +1,6 @@
 package controllers;
 
-import java.time.ZonedDateTime;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import models.Flight;
 import models.Passenger;
@@ -29,10 +29,10 @@ public class BookingController {
         String toCode = Helper.scan.nextLine();
         System.out.println("Enter the timing of arrival in format: yyyy-MM-dd HH:mm");
         String ArrivalScanner = Helper.scan.nextLine().trim();
-        ZonedDateTime arrival = Helper.StringToDateFormatter(Validation.validateDateTime(ArrivalScanner));
+        LocalDateTime arrival = Helper.StringToDateFormatter(Validation.validateDateTime(ArrivalScanner));
         System.out.println("Enter the timing of arrival in format: yyyy-MM-dd HH:mm");
         String departureScanner = Helper.scan.nextLine().trim();
-        ZonedDateTime departure = Helper.StringToDateFormatter(Validation.validateDateTime(departureScanner));
+        LocalDateTime departure = Helper.StringToDateFormatter(Validation.validateDateTime(departureScanner));
         System.out.println("Enter the price ");
         var price = Helper.scan.nextDouble();
         flightList.add(new Flight(flightNo, capacity, from, fromCode, to, toCode, arrival, departure, price));
@@ -77,6 +77,12 @@ public class BookingController {
         System.out.println("Enter the details of the passenger:");
         var passenger = addPassenger();
         ticketList.add(new Ticket(passenger, flightList.get(index - 1)));
+        System.out.println("Do you want to print the ticket? (please Type yes/y if you want to print or no/n if not)");
+        String input = Helper.scan.nextLine().toLowerCase().trim();
+        if (input.equals("yes") || input.equals("y")) {
+            ticketList.get(ticketList.size() - 1).printTicketToPdf();
+        }
+
     }
 
     public void displayTickets() {
@@ -136,7 +142,7 @@ public class BookingController {
         String to = Helper.scan.nextLine();
         System.out.println("Enter the timing of flight in format: yyyy-MM-dd HH:mm");
         String time = Helper.scan.nextLine().trim();
-        ZonedDateTime date = Helper.StringToDateFormatter(Validation.validateDateTime(time));
+        LocalDateTime date = Helper.StringToDateFormatter(Validation.validateDateTime(time));
         for (Flight flight : flightList) {
             if ((flight.getFrom().equals(from.toLowerCase().trim()) && flight.getTo().equals(to.toLowerCase().trim())
                     && flight.getArrival().equals(date))

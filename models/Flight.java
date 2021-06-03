@@ -12,8 +12,8 @@ public class Flight {
     String to;
     String fromCode;
     String toCode;
-    ZonedDateTime departure;
-    ZonedDateTime arrival;
+    LocalDateTime departure;
+    LocalDateTime arrival;
     Double price;
 
     public String getFromCode() {
@@ -68,19 +68,19 @@ public class Flight {
         this.to = to;
     }
 
-    public ZonedDateTime getDeparture() {
+    public LocalDateTime getDeparture() {
         return this.departure;
     }
 
-    public void setDeparture(ZonedDateTime departure) {
+    public void setDeparture(LocalDateTime departure) {
         this.departure = departure;
     }
 
-    public ZonedDateTime getArrival() {
+    public LocalDateTime getArrival() {
         return this.arrival;
     }
 
-    public void setArrival(ZonedDateTime arrival) {
+    public void setArrival(LocalDateTime arrival) {
         this.arrival = arrival;
     }
 
@@ -93,7 +93,7 @@ public class Flight {
     }
 
     public Flight(String flightNo, int capacity, String from, String fromCode, String to, String toCode,
-            ZonedDateTime departure, ZonedDateTime arrival, Double price) {
+            LocalDateTime departure, LocalDateTime arrival, Double price) {
         this.id = Helper.getId();
         this.flightNo = flightNo;
         this.capacity = capacity;
@@ -113,9 +113,9 @@ public class Flight {
         // System.out.println("--------------------------------------------------------------------");
         System.out.println("to: " + to + " " + toCode);
         // System.out.println("--------------------------------------------------------------------");
-        System.out.println("departure: " + departure);
+        System.out.println("departure: " + Helper.dateToStringFormatter(departure));
         // System.out.println("--------------------------------------------------------------------");
-        System.out.println("Arrival: " + arrival);
+        System.out.println("Arrival: " + Helper.dateToStringFormatter(arrival));
         // System.out.println("--------------------------------------------------------------------");
         System.out.println("Price " + price);
         // System.out.println("--------------------------------------------------------------------");
@@ -130,9 +130,9 @@ public class Flight {
         // System.out.println("--------------------------------------------------------------------");
         System.out.println("to: " + to + " " + toCode);
         // System.out.println("--------------------------------------------------------------------");
-        System.out.println("departure: " + departure);
+        System.out.println("departure: " + Helper.dateToStringFormatter(departure));
         // System.out.println("--------------------------------------------------------------------");
-        System.out.println("Arrival: " + arrival);
+        System.out.println("Arrival: " + Helper.dateToStringFormatter(arrival));
         // System.out.println("--------------------------------------------------------------------");
         System.out.println("Price " + price);
     }
