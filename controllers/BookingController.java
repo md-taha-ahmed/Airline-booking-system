@@ -13,10 +13,12 @@ public class BookingController {
     ArrayList<Ticket> ticketList = new ArrayList<Ticket>();
 
     public void addFlight() {
-        System.out.println("Enter the flight Number:");
+        System.out.println(
+                "------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("Enter the flight's Code:");
         Helper.scan.nextLine();
         String flightNo = Helper.scan.nextLine();
-        System.out.println("Enter the capacity");
+        System.out.println("Enter the capacity of the flight ");
         int capacity = Helper.scan.nextInt();
         System.out.println("Enter from where the flight will go ");
         Helper.scan.nextLine();
@@ -33,7 +35,7 @@ public class BookingController {
         System.out.println("Enter the timing of arrival in format: yyyy-MM-dd HH:mm");
         String departureScanner = Helper.scan.nextLine().trim();
         LocalDateTime departure = Helper.StringToDateFormatter(Validation.validateDateTime(departureScanner));
-        System.out.println("Enter the price ");
+        System.out.println("Enter the price of the ticket");
         var price = Helper.scan.nextDouble();
         flightList.add(new Flight(flightNo, capacity, from, fromCode, to, toCode, arrival, departure, price));
 
@@ -41,12 +43,14 @@ public class BookingController {
 
     public void displayFlightsDetails() {
         int index = 1;
-        System.out.println("*********************************************************************");
+        System.out.println(
+                "------------------------------------------------------------------------------------------------------------------------------");
         for (Flight flight : flightList) {
-            System.out.println(index + ":-");
+            System.out.println("                                                 " + index + "-");
             flight.DisplayFlightDetail();
             index++;
-            System.out.println("*********************************************************************");
+            System.out.println(
+                    "------------------------------------------------------------------------------------------------------------------------------");
         }
     }
 
@@ -68,13 +72,15 @@ public class BookingController {
 
     public void bookTicket() {
         displayFlightsDetails();
-        System.out.println("Enter the number of the flight that you want to book:");
+        System.out.print("Enter the number of the flight that you want to book:");
         int index = Helper.scan.nextInt();
+        System.out.println(
+                "------------------------------------------------------------------------------------------------------------------------------");
         if (!flightList.get(index - 1).bookFlight()) {
             System.out.println("No seat is available please select different flight!!!");
             return;
         }
-        System.out.println("Enter the details of the passenger:");
+        System.out.println("Enter the details of the passenger:\n");
         var passenger = addPassenger();
         ticketList.add(new Ticket(passenger, flightList.get(index - 1)));
         System.out.println("Do you want to print the ticket? (please Type yes/y if you want to print or no/n if not)");
@@ -87,23 +93,27 @@ public class BookingController {
 
     public void displayTickets() {
         int index = 1;
-        System.out.println("--------------------------------------------------------------------");
+        System.out.println(
+                "------------------------------------------------------------------------------------------------------------------------------");
         for (Ticket ticket : ticketList) {
-            System.out.println(index + ":-");
+            System.out.println("                                                  " + index + "-");
             ticket.displayDetails();
             index++;
-            System.out.println("--------------------------------------------------------------------");
+            System.out.println(
+                    "------------------------------------------------------------------------------------------------------------------------------");
         }
     }
 
     public void cancelTicket() {
         int index;
         displayTickets();
-        System.out.println("Enter the number of the ticket that you want to delete:");
+        System.out.print("Enter the number of the ticket that you want to delete:");
         index = Helper.scan.nextInt();
+        System.out.println(
+                "------------------------------------------------------------------------------------------------------------------------------");
         var d = getFlightIndexById(ticketList.get(index - 1).flight.getId());
         var deleted = ticketList.remove(index - 1);
-        System.out.println("the deleted ticket:");
+        System.out.println("                                                   the deleted ticket:");
         deleted.displayDetails();
         flightList.get(d).cancelFlight();
     }
@@ -111,10 +121,14 @@ public class BookingController {
     public void deleteFlight() {
         int index;
         displayFlightsDetails();
-        System.out.println("Enter the number of the flight that you want to delete:");
+        System.out.print("Enter the number of the flight that you want to delete it:");
         index = Helper.scan.nextInt();
+        System.out.println(
+                "------------------------------------------------------------------------------------------------------------------------------");
         var deleted = flightList.remove(index - 1);
-        System.out.println("the deleted flight:");
+        System.out.println("                                                -------------------------------------");
+        System.out.println("                                                   the deleted flight:");
+        System.out.println("                                                -------------------------------------");
         deleted.DisplayFlightDetail();
 
     }
@@ -134,7 +148,11 @@ public class BookingController {
 
     public void searchForFlight() {
         System.out.println(
+                "------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println(
                 "please select only one format to pass the name of city (Airport code or the real name of the city )  ");
+        System.out.println(
+                "------------------------------------------------------------------------------------------------------------------------------");
         System.out.println("Enter from where that flight you want to book:");
         Helper.scan.nextLine();
         String from = Helper.scan.nextLine();
@@ -159,8 +177,10 @@ public class BookingController {
 
     public void printTicket() {
         displayTickets();
-        System.out.println("Enter the number of the ticket");
+        System.out.print("Enter the number of the ticket:");
         int index = Helper.scan.nextInt();
+        System.out.println(
+                "------------------------------------------------------------------------------------------------------------------------------");
         var d = getFlightIndexById(ticketList.get(index - 1).flight.getId());
         ticketList.get(d).printTicketToPdf();
 
