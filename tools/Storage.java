@@ -26,6 +26,7 @@ public class Storage {
             reader.close();
 
             String content = stringBuilder.toString();
+            System.out.println(content);
 
             Gson gson = new Gson();
             controller = gson.fromJson(content, BookingController.class);

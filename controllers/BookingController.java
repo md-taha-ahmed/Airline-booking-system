@@ -1,7 +1,6 @@
 package controllers;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import models.Flight;
 import models.Passenger;
@@ -30,10 +29,10 @@ public class BookingController {
         String toCode = Helper.scan.nextLine();
         System.out.println("Enter the timing of arrival in format: yyyy-MM-dd HH:mm");
         String ArrivalScanner = Helper.scan.nextLine().trim();
-        LocalDateTime arrival = Helper.dateFormatter(Validation.validateDateTime(ArrivalScanner));
+        ZonedDateTime arrival = Helper.StringToDateFormatter(Validation.validateDateTime(ArrivalScanner));
         System.out.println("Enter the timing of arrival in format: yyyy-MM-dd HH:mm");
         String departureScanner = Helper.scan.nextLine().trim();
-        LocalDateTime departure = Helper.dateFormatter(Validation.validateDateTime(departureScanner));
+        ZonedDateTime departure = Helper.StringToDateFormatter(Validation.validateDateTime(departureScanner));
         System.out.println("Enter the price ");
         var price = Helper.scan.nextDouble();
         flightList.add(new Flight(flightNo, capacity, from, fromCode, to, toCode, arrival, departure, price));
@@ -137,7 +136,7 @@ public class BookingController {
         String to = Helper.scan.nextLine();
         System.out.println("Enter the timing of flight in format: yyyy-MM-dd HH:mm");
         String time = Helper.scan.nextLine().trim();
-        LocalDateTime date = Helper.dateFormatter(Validation.validateDateTime(time));
+        ZonedDateTime date = Helper.StringToDateFormatter(Validation.validateDateTime(time));
         for (Flight flight : flightList) {
             if ((flight.getFrom().equals(from.toLowerCase().trim()) && flight.getTo().equals(to.toLowerCase().trim())
                     && flight.getArrival().equals(date))
@@ -152,4 +151,12 @@ public class BookingController {
         System.out.println("Not Found!!!");
     }
 
+    public void printTicket() {
+        displayTickets();
+        System.out.println("Enter the number of the ticket");
+        int index = Helper.scan.nextInt();
+        var d = getFlightIndexById(ticketList.get(index - 1).flight.getId());
+        ticketList.get(d).printTicketToPdf();
+
+    }
 }
