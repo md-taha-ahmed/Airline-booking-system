@@ -3,7 +3,7 @@ import controllers.BookingController;
 import tools.*;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Byte choice;
         BookingController controller = Storage.loadData();
         for (;;) {
@@ -46,6 +46,7 @@ public class Main {
                     controller.searchForFlight();
                     break;
                 case 8:
+                controller.printTicket();
                     System.out.println("Empty");
                     break;
                 case 9:
