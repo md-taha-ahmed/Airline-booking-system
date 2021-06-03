@@ -107,34 +107,27 @@ public class Flight {
     }
 
     public void DisplayFlightDetail() {
-        System.out.println("flight No: " + flightNo);
-        // System.out.println("--------------------------------------------------------------------");
-        System.out.println("from: " + from + " " + fromCode);
-        // System.out.println("--------------------------------------------------------------------");
-        System.out.println("to: " + to + " " + toCode);
-        // System.out.println("--------------------------------------------------------------------");
-        System.out.println("departure: " + Helper.dateToStringFormatter(departure));
-        // System.out.println("--------------------------------------------------------------------");
-        System.out.println("Arrival: " + Helper.dateToStringFormatter(arrival));
-        // System.out.println("--------------------------------------------------------------------");
-        System.out.println("Price " + price);
-        // System.out.println("--------------------------------------------------------------------");
-        System.out.println("available tickets: " + capacity);
-        // System.out.println("--------------------------------------------------------------------");
+        System.out.println("                                                   Flight code: " + flightNo);
+        System.out.println("                                                   From: " + from + " " + fromCode);
+        System.out.println("                                                   To: " + to + " " + toCode);
+        System.out.println("                                                   Departure: "
+                + Helper.dateToStringFormatter(departure));
+        System.out.println(
+                "                                                   Arrival: " + Helper.dateToStringFormatter(arrival));
+        System.out.println("                                                   Price " + price);
+        System.out
+                .println("                                                   Number of available tickets: " + capacity);
     }
 
     public void DisplayFlightDetailInTicket() {
-        System.out.println("flight No: " + flightNo);
-        // System.out.println("--------------------------------------------------------------------");
-        System.out.println("from: " + from + " " + fromCode);
-        // System.out.println("--------------------------------------------------------------------");
-        System.out.println("to: " + to + " " + toCode);
-        // System.out.println("--------------------------------------------------------------------");
-        System.out.println("departure: " + Helper.dateToStringFormatter(departure));
-        // System.out.println("--------------------------------------------------------------------");
-        System.out.println("Arrival: " + Helper.dateToStringFormatter(arrival));
-        // System.out.println("--------------------------------------------------------------------");
-        System.out.println("Price " + price);
+        System.out.println("                                                   Flight code: " + flightNo);
+        System.out.println("                                                   From: " + from + " " + fromCode);
+        System.out.println("                                                   To: " + to + " " + toCode);
+        System.out.println("                                                   Departure: "
+                + Helper.dateToStringFormatter(departure));
+        System.out.println(
+                "                                                   Arrival: " + Helper.dateToStringFormatter(arrival));
+        System.out.println("                                                   Price of the ticket :" + price);
     }
 
     public Boolean bookFlight() {

@@ -7,20 +7,32 @@ public class Main {
         Byte choice;
         BookingController controller = Storage.loadData();
         for (;;) {
-            System.out.println("*********** Welcome to the flight ticket purchase system!************");
+            System.out.println("");
+            System.out.println(
+                    "####################################### Welcome to the flight ticket purchase system! ########################################");
             System.out.println();
-            System.out.println("*********************************************************************");
-            System.out.println("**************************** 1. List All Flights ********************");
-            System.out.println("**************************** 2. Add Flight **************************");
-            System.out.println("**************************** 3. Delete Flight ***********************");
-            System.out.println("**************************** 4. Book A Ticket ***********************");
-            System.out.println("**************************** 5. List All Ticket *********************");
-            System.out.println("**************************** 6. Cancel A Ticket *********************");
-            System.out.println("**************************** 7. Search For A flight *****************");
-            System.out.println("**************************** 8. Empty *******************************");
-            System.out.println("**************************** 9. Empty *******************************");
-            System.out.println("**************************** 10. Exit the system ********************");
-            System.out.println("*********************************************************************");
+            System.out.println(
+                    "------------------------------------------------------------------------------------------------------------------------------");
+            System.out.println(
+                    "-------------------------------------------------- 1. List All Flights -------------------------------------------------------");
+            System.out.println(
+                    "-------------------------------------------------- 2. Add Flight -------------------------------------------------------------");
+            System.out.println(
+                    "-------------------------------------------------- 3. Delete Flight ----------------------------------------------------------");
+            System.out.println(
+                    "-------------------------------------------------- 4. Book A Ticket ----------------------------------------------------------");
+            System.out.println(
+                    "-------------------------------------------------- 5. List All Ticket --------------------------------------------------------");
+            System.out.println(
+                    "-------------------------------------------------- 6. Cancel A Ticket --------------------------------------------------------");
+            System.out.println(
+                    "-------------------------------------------------- 7. Search For A flight ----------------------------------------------------");
+            System.out.println(
+                    "-------------------------------------------------- 8. Print A Ticket  --------------------------------------------------------");
+            System.out.println(
+                    "-------------------------------------------------- 9. Exit The System And Save -----------------------------------------------");
+            System.out.println(
+                    "------------------------------------------------------------------------------------------------------------------------------");
             System.out.print("Please select the serial number to be operated:");
             choice = Helper.scan.nextByte();
             switch (choice) {
@@ -46,13 +58,9 @@ public class Main {
                     controller.searchForFlight();
                     break;
                 case 8:
-                controller.printTicket();
-                    System.out.println("Empty");
+                    controller.printTicket();
                     break;
                 case 9:
-                    System.out.println("Empty");
-                    break;
-                case 10:
                     Gson gson = new Gson();
                     String data = gson.toJson(controller);
                     if (Storage.savingData(data)) {
