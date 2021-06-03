@@ -1,12 +1,12 @@
 {
     "flightList": [
         {
-            "id": 4,
-            "flightNo": "1",
-            "capacity": 1,
-            "from": "aa",
-            "to": "aa",
-            "fromCode": "AA",
+            "id": 5,
+            "flightNo": "a",
+            "capacity": 11,
+            "from": "a",
+            "to": "a",
+            "fromCode": "A",
             "toCode": "A",
             "departure": {
                 "dateTime": {
