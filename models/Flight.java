@@ -12,6 +12,9 @@ public class Flight {
     String to;
     String fromCode;
     String toCode;
+    ZonedDateTime departure;
+    ZonedDateTime arrival;
+    Double price;
 
     public String getFromCode() {
         return this.fromCode;
@@ -28,10 +31,6 @@ public class Flight {
     public void setToCode(String toCode) {
         this.toCode = toCode;
     }
-
-    LocalDateTime departure;
-    LocalDateTime arrival;
-    Double price;
 
     public int getId() {
         return id;
@@ -69,19 +68,19 @@ public class Flight {
         this.to = to;
     }
 
-    public LocalDateTime getDeparture() {
+    public ZonedDateTime getDeparture() {
         return this.departure;
     }
 
-    public void setDeparture(LocalDateTime departure) {
+    public void setDeparture(ZonedDateTime departure) {
         this.departure = departure;
     }
 
-    public LocalDateTime getArrival() {
+    public ZonedDateTime getArrival() {
         return this.arrival;
     }
 
-    public void setArrival(LocalDateTime arrival) {
+    public void setArrival(ZonedDateTime arrival) {
         this.arrival = arrival;
     }
 
@@ -93,15 +92,15 @@ public class Flight {
         this.price = price;
     }
 
-    public Flight(String flightNo, int capacity, String from,String fromCode, String to,String toCode, LocalDateTime departure, LocalDateTime arrival,
-            Double price) {
+    public Flight(String flightNo, int capacity, String from, String fromCode, String to, String toCode,
+            ZonedDateTime departure, ZonedDateTime arrival, Double price) {
         this.id = Helper.getId();
         this.flightNo = flightNo;
         this.capacity = capacity;
         this.from = from.toLowerCase().trim();
-        this.fromCode=fromCode.toUpperCase().trim();
+        this.fromCode = fromCode.toUpperCase().trim();
         this.to = to.toLowerCase().trim();
-        this.toCode= toCode.toUpperCase().trim();
+        this.toCode = toCode.toUpperCase().trim();
         this.departure = departure;
         this.arrival = arrival;
         this.price = price;
