@@ -19,4 +19,4 @@
 ![](screenshots/search-for-flight.png)
 * ### Print A Ticket As A PDF File (using PDFBox library).
 ![](screenshots/print-ticket-as-PDF-file.png)
-* ### Exit The System And Save The Data In JSON File.
+* ### Exit The System And Save The Data In the JSON File.
