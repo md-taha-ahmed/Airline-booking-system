@@ -1,7 +1,7 @@
 # Airline_booking_system
-## This program is for Airline Booking System ,and it made for mini project for subject Object-Oriented Concepts in 2nd year 
+## This program is for Airline Booking System ,and it made for mini project for subject Object-Oriented Concepts in 2nd year. 
 ### what this program do :
-* ### Load The Old Data From JSON File (using gson library).
+* ### Load The Old Data From JSON File (using GSON library).
 * ### List All Flights.
 * ### Add Flight.
 * ### Delete Flight.
