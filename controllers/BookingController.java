@@ -163,10 +163,10 @@ public class BookingController {
         LocalDateTime date = Helper.StringToDateFormatter(Validation.validateDateTime(time));
         for (Flight flight : flightList) {
             if ((flight.getFrom().equals(from.toLowerCase().trim()) && flight.getTo().equals(to.toLowerCase().trim())
-                    && flight.getArrival().equals(date))
+                    && flight.getDeparture().equals(date))
                     || (flight.getFromCode().equals(from.toUpperCase().trim())
                             && flight.getToCode().equals(to.toUpperCase().trim())
-                            && flight.getArrival().equals(date))) {
+                            && flight.getDeparture().equals(date))) {
                 System.out.println("Found!!!");
                 flight.DisplayFlightDetail();
                 return;
