@@ -1,7 +1,6 @@
 package models;
 
 import java.time.*;
-
 import tools.Helper;
 
 public class Flight {

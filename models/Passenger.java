@@ -1,7 +1,5 @@
 package models;
 
-import java.util.Scanner;
-
 import tools.Helper;
 
 public class Passenger {
@@ -49,12 +47,6 @@ public class Passenger {
         this.passportNo = passportNo;
         this.age = age;
         this.nationality = nationality;
-    }
-
-    public boolean setPassengerDetails() {
-        Scanner in = new Scanner(System.in);
-        in.close();
-        return true;
     }
 
     public void DisplayPassengerDetails() {
