@@ -1,5 +1,7 @@
 package controllers;
 
+import java.text.ParseException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import models.Flight;
@@ -31,10 +33,10 @@ public class BookingController {
         String toCode = Helper.scan.nextLine();
         System.out.println("Enter the timing of arrival in format: yyyy-MM-dd HH:mm");
         String ArrivalScanner = Helper.scan.nextLine().trim();
-        LocalDateTime arrival = Helper.StringToDateFormatter(Validation.validateDateTime(ArrivalScanner));
+        LocalDateTime arrival = Helper.StringToDateTimeFormatter(Validation.validateDateTime(ArrivalScanner));
         System.out.println("Enter the timing of arrival in format: yyyy-MM-dd HH:mm");
         String departureScanner = Helper.scan.nextLine().trim();
-        LocalDateTime departure = Helper.StringToDateFormatter(Validation.validateDateTime(departureScanner));
+        LocalDateTime departure = Helper.StringToDateTimeFormatter(Validation.validateDateTime(departureScanner));
         System.out.println("Enter the price of the ticket");
         var price = Helper.scan.nextDouble();
         flightList.add(new Flight(flightNo, capacity, from, fromCode, to, toCode, arrival, departure, price));
@@ -146,7 +148,7 @@ public class BookingController {
         return index;
     }
 
-    public void searchForFlight() {
+    public void searchForFlight() throws ParseException {
         System.out.println(
                 "------------------------------------------------------------------------------------------------------------------------------");
         System.out.println(
@@ -158,21 +160,27 @@ public class BookingController {
         String from = Helper.scan.nextLine();
         System.out.println("Enter to where that flight you want to book:");
         String to = Helper.scan.nextLine();
-        System.out.println("Enter the timing of flight in format: yyyy-MM-dd HH:mm");
+        System.out.println("Enter the timing of flight in format: yyyy-MM-dd");
         String time = Helper.scan.nextLine().trim();
-        LocalDateTime date = Helper.StringToDateFormatter(Validation.validateDateTime(time));
+        LocalDate date = Helper.StringToDateFormatter(Validation.validateDate(time));
+        Boolean flag = true;
+        // date= date.toLocalDate();
         for (Flight flight : flightList) {
             if ((flight.getFrom().equals(from.toLowerCase().trim()) && flight.getTo().equals(to.toLowerCase().trim())
-                    && flight.getDeparture().equals(date))
+                    && flight.getDeparture().toLocalDate().equals(date))
                     || (flight.getFromCode().equals(from.toUpperCase().trim())
                             && flight.getToCode().equals(to.toUpperCase().trim())
-                            && flight.getDeparture().equals(date))) {
-                System.out.println("Found!!!");
+                            && flight.getDeparture().toLocalDate().equals(date))) {
                 flight.DisplayFlightDetail();
-                return;
+                System.out.println(
+                        "                                                -------------------------------------");
+                flag = false;
             }
         }
-        System.out.println("Not Found!!!");
+        if (flag) {
+            System.out.println("Not Found!!!");
+        }
+
     }
 
     public void printTicket() {

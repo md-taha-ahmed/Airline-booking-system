@@ -21,6 +21,23 @@ public class Validation {
         return temp;
     }
 
+    public static String validateDate(String input) {
+        String temp;
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            format.parse(input);
+            return input;
+        } catch (ParseException e) {
+            String newInput;
+            System.out.println(
+                    "You've Entered an  invalid date and time format please Enter the date and time in this format yyyy-MM-dd");
+            System.out.print("");
+            newInput = Helper.scan.nextLine();
+            temp = validateDate(newInput);
+        }
+        return temp;
+    }
+
     public static boolean intIsEmpty(int input) {
         int number = -1;
         number = input;

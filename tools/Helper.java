@@ -1,6 +1,8 @@
 package tools;
 
 import java.util.Scanner;
+import java.text.ParseException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Random;
@@ -13,9 +15,15 @@ public class Helper {
 
     public final static Scanner scan = new Scanner(System.in);
 
-    public static LocalDateTime StringToDateFormatter(String input) {
+    public static LocalDateTime StringToDateTimeFormatter(String input) {
         DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         LocalDateTime date = LocalDateTime.parse(input, format);
+        return date;
+    }
+
+    public static LocalDate StringToDateFormatter(String input) throws ParseException {
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate date = LocalDate.parse(input, format);
         return date;
     }
 
