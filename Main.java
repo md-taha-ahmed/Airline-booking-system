@@ -26,13 +26,15 @@ public class Main {
             System.out.println(
                     "-------------------------------------------------- 6. Book A Ticket ----------------------------------------------------------");
             System.out.println(
-                    "-------------------------------------------------- 7. List All Ticket --------------------------------------------------------");
+                    "-------------------------------------------------- 7. Edit A Ticket ----------------------------------------------------------");
             System.out.println(
-                    "-------------------------------------------------- 8. Print A Ticket  --------------------------------------------------------");
+                    "-------------------------------------------------- 8. List All Ticket --------------------------------------------------------");
             System.out.println(
-                    "-------------------------------------------------- 9. Cancel A Ticket --------------------------------------------------------");
+                    "-------------------------------------------------- 9. Print A Ticket  --------------------------------------------------------");
             System.out.println(
-                    "-------------------------------------------------- 10. Exit The System And Save -----------------------------------------------");
+                    "-------------------------------------------------- 10. Cancel A Ticket -------------------------------------------------------");
+            System.out.println(
+                    "-------------------------------------------------- 11. Exit The System And Save ----------------------------------------------");
             System.out.println(
                     "------------------------------------------------------------------------------------------------------------------------------");
             System.out.print("Please select the serial number to be operated:");
@@ -57,15 +59,18 @@ public class Main {
                     controller.bookTicket();
                     break;
                 case 7:
-                    controller.displayTickets();
+                    controller.editTicket();
                     break;
                 case 8:
-                    controller.printTicket();
+                    controller.displayTickets();
                     break;
                 case 9:
-                    controller.cancelTicket();
+                    controller.printTicket();
                     break;
                 case 10:
+                    controller.cancelTicket();
+                    break;
+                case 11:
                     Gson gson = new Gson();
                     String data = gson.toJson(controller);
                     if (Storage.savingData(data)) {

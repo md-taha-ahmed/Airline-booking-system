@@ -129,6 +129,15 @@ public class Flight {
         System.out.println("                                                   Price of the ticket :" + price);
     }
 
+    public void DisplayFlightDetailInEditTicket() {
+        System.out.println("Flight's code: " + flightNo);
+        System.out.println("From: " + from + " " + fromCode);
+        System.out.println("To: " + to + " " + toCode);
+        System.out.println("Departure: " + Helper.dateToStringFormatter(departure));
+        System.out.println("Arrival: " + Helper.dateToStringFormatter(arrival));
+        System.out.println("Price of the ticket :" + price);
+    }
+
     public Boolean bookFlight() {
         if (this.capacity > 0) {
             this.capacity--;

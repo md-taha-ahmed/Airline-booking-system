@@ -4,17 +4,17 @@ import tools.Helper;
 
 public class Passenger {
     int id;
-    String fullName;
+    String name;
     String passportNo;
     int age;
     String nationality;
 
-    public String getFullName() {
-        return this.fullName;
+    public String getName() {
+        return this.name;
     }
 
     public void setFullName(String fullName) {
-        this.fullName = fullName;
+        this.name = fullName;
     }
 
     public String getPassportNo() {
@@ -43,14 +43,14 @@ public class Passenger {
 
     public Passenger(String fullName, String passportNo, int age, String nationality) {
         this.id = Helper.getId();
-        this.fullName = fullName;
+        this.name = fullName;
         this.passportNo = passportNo;
         this.age = age;
         this.nationality = nationality;
     }
 
     public void DisplayPassengerDetails() {
-        System.out.println("                                                   Full name: " + fullName);
+        System.out.println("                                                   Full name: " + name);
         System.out.println("                                                   Passport No: " + passportNo);
         System.out.println("                                                   Age: " + age);
         System.out.println("                                                   Nationality: " + nationality);

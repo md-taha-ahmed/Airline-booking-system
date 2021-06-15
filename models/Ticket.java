@@ -63,7 +63,7 @@ public class Ticket {
             PDDocumentInformation pdd = document.getDocumentInformation();
             pdd.setAuthor("AMC Travels");
             Calendar pdfDate = Calendar.getInstance();
-            pdd.setTitle("Ticket " + passenger.fullName);
+            pdd.setTitle("Ticket " + passenger.name);
             pdd.setCreationDate(pdfDate);
             pdd.setCreator("AMC Travels company");
             contents.beginText();
@@ -74,7 +74,7 @@ public class Ticket {
             contents.newLine();
             contents.showText(line);
             contents.newLine();
-            contents.showText("Name: " + " " + passenger.fullName);
+            contents.showText("Name: " + " " + passenger.name);
             contents.newLine();
             contents.showText("Password Number: " + " " + passenger.passportNo);
             contents.newLine();
@@ -131,8 +131,8 @@ public class Ticket {
             contents.showText("international travel).");
             contents.endText();
             contents.close();
-            document.save("Tickets/" + passenger.fullName + "_" + this.id + ".pdf");
-            System.out.println("Your ticket saved at" + "Tickets/" + passenger.fullName + "_" + this.id + ".pdf");
+            document.save("Tickets/" + passenger.name + "_" + this.id + ".pdf");
+            System.out.println("Your ticket saved at" + "Tickets/" + passenger.name + "_" + this.id + ".pdf");
             document.close();
         } catch (Exception e) {
             System.out.println("The ticket couldn't be printed due: ");

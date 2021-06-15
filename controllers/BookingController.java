@@ -290,4 +290,68 @@ public class BookingController {
         }
     }
 
+    public void editTicket() {
+        displayTickets();
+        System.out.println("Enter the number of the ticket");
+        int index = Helper.scan.nextInt();
+        index = index - 1;
+        System.out.println(
+                "------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("Write (edit) if You want edit or click Enter button if  don't need to edit");
+        System.out.println(
+                "------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("-------------------------------------");
+        System.out.println("   Passenger details: ");
+        System.out.println("-------------------------------------");
+        System.out.println("Full name: " + ticketList.get(index).passenger.getName());
+        Helper.scan.nextLine();
+        String nameCheck = Helper.scan.nextLine();
+        nameCheck = nameCheck.toLowerCase().trim();
+        if (nameCheck.equals("edit")) {
+            System.out.println("Please Enter the new name");
+            String name = Helper.scan.nextLine();
+            ticketList.get(index).passenger.setFullName(name);
+            System.out.println("Done...");
+        }
+        System.out.println("Passport No: " + ticketList.get(index).passenger.getPassportNo());
+        String passportNoCheck = Helper.scan.nextLine();
+        passportNoCheck = passportNoCheck.toLowerCase().trim();
+        if (passportNoCheck.equals("edit")) {
+            System.out.println("Please Enter the new Passport number");
+            String passportNo = Helper.scan.nextLine();
+            ticketList.get(index).passenger.setPassportNo(passportNo);
+            System.out.println("Done...");
+        }
+        System.out.println("Nationality: " + ticketList.get(index).passenger.getNationality());
+        String nationalityCheck = Helper.scan.nextLine();
+        nationalityCheck = nationalityCheck.toLowerCase().trim();
+        if (nationalityCheck.equals("edit")) {
+            System.out.println("Please Enter the new flight's code");
+            String nationality = Helper.scan.nextLine();
+            ticketList.get(index).passenger.setNationality(nationality);
+            System.out.println("Done...");
+        }
+        System.out.println("Age: " + ticketList.get(index).passenger.getAge());
+        String ageCheck = Helper.scan.nextLine();
+        ageCheck = ageCheck.toLowerCase().trim();
+        if (ageCheck.equals("edit")) {
+            System.out.println("Please Enter the new flight's code");
+            int age = Helper.scan.nextInt();
+            ticketList.get(index).passenger.setAge(age);
+            System.out.println("Done...");
+        }
+        System.out.println("-------------------------------------");
+        System.out.println("   Flight details: ");
+        System.out.println("-------------------------------------");
+        ticketList.get(index).flight.DisplayFlightDetailInEditTicket();
+        String flightCheck = Helper.scan.nextLine();
+        flightCheck = flightCheck.toLowerCase().trim();
+        if (flightCheck.equals("edit")) {
+            displayFlightsDetails();
+            System.out.println("Please Enter the new flight number");
+            int flightNo = Helper.scan.nextInt();
+            ticketList.get(index).setFlight(flightList.get(flightNo - 1));
+            System.out.println("Done...");
+        }
+    }
 }
