@@ -344,6 +344,7 @@ public class BookingController {
         System.out.println("   Flight details: ");
         System.out.println("-------------------------------------");
         ticketList.get(index).flight.DisplayFlightDetailInEditTicket();
+        Helper.scan.nextLine();
         String flightCheck = Helper.scan.nextLine();
         flightCheck = flightCheck.toLowerCase().trim();
         if (flightCheck.equals("edit")) {
