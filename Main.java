@@ -18,19 +18,21 @@ public class Main {
             System.out.println(
                     "-------------------------------------------------- 2. Add Flight -------------------------------------------------------------");
             System.out.println(
-                    "-------------------------------------------------- 3. Delete Flight ----------------------------------------------------------");
+                    "-------------------------------------------------- 3. Edit A Flight  ---------------------------------------------------------");
             System.out.println(
-                    "-------------------------------------------------- 4. Book A Ticket ----------------------------------------------------------");
+                    "-------------------------------------------------- 4. Delete Flight ----------------------------------------------------------");
             System.out.println(
-                    "-------------------------------------------------- 5. List All Ticket --------------------------------------------------------");
+                    "-------------------------------------------------- 5. Search For A flight ----------------------------------------------------");
             System.out.println(
-                    "-------------------------------------------------- 6. Cancel A Ticket --------------------------------------------------------");
+                    "-------------------------------------------------- 6. Book A Ticket ----------------------------------------------------------");
             System.out.println(
-                    "-------------------------------------------------- 7. Search For A flight ----------------------------------------------------");
+                    "-------------------------------------------------- 7. List All Ticket --------------------------------------------------------");
             System.out.println(
                     "-------------------------------------------------- 8. Print A Ticket  --------------------------------------------------------");
             System.out.println(
-                    "-------------------------------------------------- 9. Exit The System And Save -----------------------------------------------");
+                    "-------------------------------------------------- 9. Cancel A Ticket --------------------------------------------------------");
+            System.out.println(
+                    "-------------------------------------------------- 10. Exit The System And Save -----------------------------------------------");
             System.out.println(
                     "------------------------------------------------------------------------------------------------------------------------------");
             System.out.print("Please select the serial number to be operated:");
@@ -43,24 +45,27 @@ public class Main {
                     controller.addFlight();
                     break;
                 case 3:
-                    controller.deleteFlight();
+                    controller.editFlight();
                     break;
                 case 4:
-                    controller.bookTicket();
+                    controller.deleteFlight();
                     break;
                 case 5:
-                    controller.displayTickets();
+                    controller.searchForFlight();
                     break;
                 case 6:
-                    controller.cancelTicket();
+                    controller.bookTicket();
                     break;
                 case 7:
-                    controller.searchForFlight();
+                    controller.displayTickets();
                     break;
                 case 8:
                     controller.printTicket();
                     break;
                 case 9:
+                    controller.cancelTicket();
+                    break;
+                case 10:
                     Gson gson = new Gson();
                     String data = gson.toJson(controller);
                     if (Storage.savingData(data)) {
@@ -72,7 +77,6 @@ public class Main {
 
                         break;
                     }
-
                 default:
                     System.out.println("You've enter the wrong number!!!");
                     break;

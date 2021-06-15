@@ -106,7 +106,7 @@ public class Flight {
     }
 
     public void DisplayFlightDetail() {
-        System.out.println("                                                   Flight code: " + flightNo);
+        System.out.println("                                                   Flight's code: " + flightNo);
         System.out.println("                                                   From: " + from + " " + fromCode);
         System.out.println("                                                   To: " + to + " " + toCode);
         System.out.println("                                                   Departure: "
@@ -119,7 +119,7 @@ public class Flight {
     }
 
     public void DisplayFlightDetailInTicket() {
-        System.out.println("                                                   Flight code: " + flightNo);
+        System.out.println("                                                   Flight's code: " + flightNo);
         System.out.println("                                                   From: " + from + " " + fromCode);
         System.out.println("                                                   To: " + to + " " + toCode);
         System.out.println("                                                   Departure: "

@@ -193,4 +193,101 @@ public class BookingController {
         ticketList.get(d).printTicketToPdf();
 
     }
+
+    public void editFlight() {
+        displayFlightsDetails();
+        System.out.println("Enter the number of the flight that you want to edit it ");
+        int index = Helper.scan.nextInt();
+        index = index - 1;
+        System.out.println(
+                "------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("Write (edit) if You want edit or click Enter button if  don't need to edit");
+        System.out.println(
+                "------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("Flight's code: " + flightList.get(index).getFlightNo());
+        Helper.scan.nextLine();
+        String flightNoCheck = Helper.scan.nextLine();
+        flightNoCheck = flightNoCheck.toLowerCase().trim();
+        if (flightNoCheck.equals("edit")) {
+            System.out.println("Please Enter the new flight's code");
+            String flightNo = Helper.scan.nextLine();
+            flightList.get(index).setFlightNo(flightNo);
+            System.out.println("Done...");
+        }
+        System.out.println("From: " + flightList.get(index).getFrom());
+        String fromCheck = Helper.scan.nextLine();
+        fromCheck = fromCheck.toLowerCase().trim();
+        if (fromCheck.equals("edit")) {
+            System.out.println("Please Enter the new source city");
+            String from = Helper.scan.nextLine();
+            flightList.get(index).setFrom(from);
+            System.out.println("Done...");
+        }
+        System.out.println("From (airport code): " + flightList.get(index).getFromCode());
+        String fromCodeCheck = Helper.scan.nextLine();
+        fromCodeCheck = fromCodeCheck.toLowerCase().trim();
+        if (fromCodeCheck.equals("edit")) {
+            System.out.println("Please Enter the new airport code ");
+            String fromCode = Helper.scan.nextLine();
+            flightList.get(index).setFromCode(fromCode);
+            System.out.println("Done...");
+        }
+        System.out.println("To: " + flightList.get(index).getTo());
+        String toCheck = Helper.scan.nextLine();
+        toCheck = toCheck.toLowerCase().trim();
+        if (toCheck.equals("edit")) {
+            System.out.println("Please Enter the new distention city");
+            String to = Helper.scan.nextLine();
+            flightList.get(index).setTo(to);
+            System.out.println("Done...");
+        }
+        System.out.println("To (airport code): " + flightList.get(index).getToCode());
+        String toCodeCheck = Helper.scan.nextLine();
+        toCodeCheck = toCodeCheck.toLowerCase().trim();
+        if (toCodeCheck.equals("edit")) {
+            System.out.println("Please Enter the new airport code");
+            String toCode = Helper.scan.nextLine();
+            flightList.get(index).setToCode(toCode);
+            System.out.println("Done...");
+        }
+        System.out.println("Departure: " + Helper.dateToStringFormatter(flightList.get(index).getDeparture()));
+        String departureCheck = Helper.scan.nextLine();
+        departureCheck = departureCheck.toLowerCase().trim();
+        if (departureCheck.equals("edit")) {
+            System.out.println("Please Enter the new departure time in format yyyy-MM-dd HH:mm");
+            String departureScanner = Helper.scan.nextLine();
+            LocalDateTime departure = Helper.StringToDateTimeFormatter(Validation.validateDateTime(departureScanner));
+            flightList.get(index).setDeparture(departure);
+            System.out.println("Done...");
+        }
+        System.out.println("Arrival: " + Helper.dateToStringFormatter(flightList.get(index).getArrival()));
+        String arrivalCheck = Helper.scan.nextLine();
+        arrivalCheck = arrivalCheck.toLowerCase().trim();
+        if (arrivalCheck.equals("edit")) {
+            System.out.println("Please Enter the new arrival time in format yyyy-MM-dd HH:mm");
+            String arrivalScanner = Helper.scan.nextLine();
+            LocalDateTime arrival = Helper.StringToDateTimeFormatter(Validation.validateDateTime(arrivalScanner));
+            flightList.get(index).setArrival(arrival);
+            System.out.println("Done...");
+        }
+        System.out.println("Price " + flightList.get(index).getPrice());
+        String priceCheck = Helper.scan.nextLine();
+        priceCheck = priceCheck.toLowerCase().trim();
+        if (priceCheck.equals("edit")) {
+            System.out.println("Please Enter the new price");
+            double price = Helper.scan.nextDouble();
+            flightList.get(index).setPrice(price);
+            System.out.println("Done...");
+        }
+        System.out.println("Capacity: " + flightList.get(index).getCapacity());
+        String capacityCheck = Helper.scan.nextLine();
+        capacityCheck = capacityCheck.toLowerCase().trim();
+        if (capacityCheck.equals("edit")) {
+            System.out.println("Please Enter the new capacity of the flight");
+            int capacity = Helper.scan.nextInt();
+            flightList.get(index).setCapacity(capacity);
+            System.out.println("Done...");
+        }
+    }
+
 }
