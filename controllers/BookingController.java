@@ -326,7 +326,7 @@ public class BookingController {
         String nationalityCheck = Helper.scan.nextLine();
         nationalityCheck = nationalityCheck.toLowerCase().trim();
         if (nationalityCheck.equals("edit")) {
-            System.out.println("Please Enter the new flight's code");
+            System.out.println("Please Enter the new nationality");
             String nationality = Helper.scan.nextLine();
             ticketList.get(index).passenger.setNationality(nationality);
             System.out.println("Done...");
@@ -335,7 +335,7 @@ public class BookingController {
         String ageCheck = Helper.scan.nextLine();
         ageCheck = ageCheck.toLowerCase().trim();
         if (ageCheck.equals("edit")) {
-            System.out.println("Please Enter the new flight's code");
+            System.out.println("Please Enter the new age");
             int age = Helper.scan.nextInt();
             ticketList.get(index).passenger.setAge(age);
             System.out.println("Done...");
