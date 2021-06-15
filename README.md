@@ -7,16 +7,21 @@
 ![](screenshots/display-flights.png)
 * ### Add Flight.
 ![](screenshots/add-a-flight.png)
+* ### Edit a Flight.
+![](screenshots/edit-flight.png)
 * ### Delete Flight.
 ![](screenshots/delete-a-flight.png)
-* ### Book A Ticket.
-![](screenshots/book-a-ticket.png)
-* ### List All Ticket.
-![](screenshots/display-tickets.png)
-* ### Cancel A Ticket.
-![](screenshots/cancel-ticket.png)
 * ### Search For A flight.
 ![](screenshots/search-for-flight.png)
+* ### Book A Ticket.
+![](screenshots/book-a-ticket.png)
+* ### Edit A Ticket.
+![](screenshots/edit-ticket(1).png)
+![](screenshots/edit-ticket(2).png)
+* ### List All Ticket.
+![](screenshots/display-tickets.png)
 * ### Print A Ticket As A PDF File (using PDFBox library).
 ![](screenshots/print-ticket-as-PDF-file.png)
+* ### Cancel A Ticket.
+![](screenshots/cancel-ticket.png)
 * ### Exit The System And Save The Data In the JSON File.
