@@ -19,18 +19,18 @@ public class BookingController {
                 "------------------------------------------------------------------------------------------------------------------------------");
         System.out.println("Enter the flight's Code:");
         Helper.scan.nextLine();
-        String flightNo = Helper.scan.nextLine();
+        String flightNo = Helper.scan.nextLine().toUpperCase().trim();
         System.out.println("Enter the capacity of the flight ");
         int capacity = Helper.scan.nextInt();
         System.out.println("Enter from where the flight will go ");
         Helper.scan.nextLine();
-        String from = Helper.scan.nextLine();
+        String from = Helper.scan.nextLine().toLowerCase().trim();
         System.out.println("Enter from where the flight will go in airport code");
-        String fromCode = Helper.scan.nextLine();
+        String fromCode = Helper.scan.nextLine().toUpperCase().trim();
         System.out.println("Enter to where the flight will go");
-        String to = Helper.scan.nextLine();
+        String to = Helper.scan.nextLine().toLowerCase().trim();
         System.out.println("Enter to where the flight will go in airport code");
-        String toCode = Helper.scan.nextLine();
+        String toCode = Helper.scan.nextLine().toUpperCase().trim();
         System.out.println("Enter the timing of arrival in format: yyyy-MM-dd HH:mm");
         String ArrivalScanner = Helper.scan.nextLine().trim();
         LocalDateTime arrival = Helper.StringToDateTimeFormatter(Validation.validateDateTime(ArrivalScanner));
@@ -151,10 +151,6 @@ public class BookingController {
     public void searchForFlight() throws ParseException {
         System.out.println(
                 "------------------------------------------------------------------------------------------------------------------------------");
-        System.out.println(
-                "please select only one format to pass the name of city (Airport code or the real name of the city )  ");
-        System.out.println(
-                "------------------------------------------------------------------------------------------------------------------------------");
         System.out.println("Enter from where that flight you want to book:");
         Helper.scan.nextLine();
         String from = Helper.scan.nextLine();
@@ -169,6 +165,12 @@ public class BookingController {
             if ((flight.getFrom().equals(from.toLowerCase().trim()) && flight.getTo().equals(to.toLowerCase().trim())
                     && flight.getDeparture().toLocalDate().equals(date))
                     || (flight.getFromCode().equals(from.toUpperCase().trim())
+                            && flight.getToCode().equals(to.toUpperCase().trim())
+                            && flight.getDeparture().toLocalDate().equals(date))
+                    || (flight.getFromCode().equals(from.toUpperCase().trim())
+                            && flight.getTo().equals(to.toLowerCase().trim())
+                            && flight.getDeparture().toLocalDate().equals(date))
+                    || (flight.getFrom().equals(from.toLowerCase().trim())
                             && flight.getToCode().equals(to.toUpperCase().trim())
                             && flight.getDeparture().toLocalDate().equals(date))) {
                 flight.DisplayFlightDetail();
