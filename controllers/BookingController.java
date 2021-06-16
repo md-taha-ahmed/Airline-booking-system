@@ -20,25 +20,34 @@ public class BookingController {
         System.out.println("Enter the flight's Code:");
         Helper.scan.nextLine();
         String flightNo = Helper.scan.nextLine().toUpperCase().trim();
+
         System.out.println("Enter the capacity of the flight ");
         int capacity = Helper.scan.nextInt();
+
         System.out.println("Enter from where the flight will go ");
         Helper.scan.nextLine();
         String from = Helper.scan.nextLine().toLowerCase().trim();
+
         System.out.println("Enter from where the flight will go in airport code");
         String fromCode = Helper.scan.nextLine().toUpperCase().trim();
+
         System.out.println("Enter to where the flight will go");
         String to = Helper.scan.nextLine().toLowerCase().trim();
+
         System.out.println("Enter to where the flight will go in airport code");
         String toCode = Helper.scan.nextLine().toUpperCase().trim();
+
         System.out.println("Enter the timing of arrival in format: yyyy-MM-dd HH:mm");
         String ArrivalScanner = Helper.scan.nextLine().trim();
         LocalDateTime arrival = Helper.StringToDateTimeFormatter(Validation.validateDateTime(ArrivalScanner));
+
         System.out.println("Enter the timing of arrival in format: yyyy-MM-dd HH:mm");
         String departureScanner = Helper.scan.nextLine().trim();
         LocalDateTime departure = Helper.StringToDateTimeFormatter(Validation.validateDateTime(departureScanner));
+
         System.out.println("Enter the price of the ticket");
         var price = Helper.scan.nextDouble();
+
         flightList.add(new Flight(flightNo, capacity, from, fromCode, to, toCode, arrival, departure, price));
 
     }
@@ -60,13 +69,17 @@ public class BookingController {
         System.out.println("Enter the Passenger Name :");
         Helper.scan.nextLine();
         String fullName = Helper.scan.nextLine();
+
         System.out.println("Enter the Passenger's passport :");
         String passportNo = Helper.scan.nextLine();
+
         System.out.println("Enter the passenger's age");
         int age = Helper.scan.nextInt();
+
         System.out.println("Enter Passenger's nationality ");
         Helper.scan.nextLine();
         String nationality = Helper.scan.nextLine();
+
         Passenger passenger = new Passenger(fullName, passportNo, age, nationality);
         return passenger;
 
@@ -85,6 +98,7 @@ public class BookingController {
         System.out.println("Enter the details of the passenger:\n");
         var passenger = addPassenger();
         ticketList.add(new Ticket(passenger, flightList.get(index - 1)));
+
         System.out.println("Do you want to print the ticket? (please Type yes/y if you want to print or no/n if not)");
         String input = Helper.scan.nextLine().toLowerCase().trim();
         if (input.equals("yes") || input.equals("y")) {
@@ -154,13 +168,16 @@ public class BookingController {
         System.out.println("Enter from where that flight you want to book:");
         Helper.scan.nextLine();
         String from = Helper.scan.nextLine();
+
         System.out.println("Enter to where that flight you want to book:");
         String to = Helper.scan.nextLine();
+
         System.out.println("Enter the timing of flight in format: yyyy-MM-dd");
         String time = Helper.scan.nextLine().trim();
         LocalDate date = Helper.StringToDateFormatter(Validation.validateDate(time));
+
         Boolean flag = true;
-        // date= date.toLocalDate();
+
         for (Flight flight : flightList) {
             if ((flight.getFrom().equals(from.toLowerCase().trim()) && flight.getTo().equals(to.toLowerCase().trim())
                     && flight.getDeparture().toLocalDate().equals(date))
@@ -206,6 +223,7 @@ public class BookingController {
         System.out.println("Write (edit) if You want edit or click Enter button if  don't need to edit");
         System.out.println(
                 "------------------------------------------------------------------------------------------------------------------------------");
+
         System.out.println("Flight's code: " + flightList.get(index).getFlightNo());
         Helper.scan.nextLine();
         String flightNoCheck = Helper.scan.nextLine();
@@ -216,6 +234,7 @@ public class BookingController {
             flightList.get(index).setFlightNo(flightNo);
             System.out.println("Done...");
         }
+
         System.out.println("From: " + flightList.get(index).getFrom());
         String fromCheck = Helper.scan.nextLine();
         fromCheck = fromCheck.toLowerCase().trim();
@@ -225,6 +244,7 @@ public class BookingController {
             flightList.get(index).setFrom(from);
             System.out.println("Done...");
         }
+
         System.out.println("From (airport code): " + flightList.get(index).getFromCode());
         String fromCodeCheck = Helper.scan.nextLine();
         fromCodeCheck = fromCodeCheck.toLowerCase().trim();
@@ -234,6 +254,7 @@ public class BookingController {
             flightList.get(index).setFromCode(fromCode);
             System.out.println("Done...");
         }
+
         System.out.println("To: " + flightList.get(index).getTo());
         String toCheck = Helper.scan.nextLine();
         toCheck = toCheck.toLowerCase().trim();
@@ -243,6 +264,7 @@ public class BookingController {
             flightList.get(index).setTo(to);
             System.out.println("Done...");
         }
+
         System.out.println("To (airport code): " + flightList.get(index).getToCode());
         String toCodeCheck = Helper.scan.nextLine();
         toCodeCheck = toCodeCheck.toLowerCase().trim();
@@ -252,6 +274,7 @@ public class BookingController {
             flightList.get(index).setToCode(toCode);
             System.out.println("Done...");
         }
+
         System.out.println("Departure: " + Helper.dateToStringFormatter(flightList.get(index).getDeparture()));
         String departureCheck = Helper.scan.nextLine();
         departureCheck = departureCheck.toLowerCase().trim();
@@ -262,6 +285,7 @@ public class BookingController {
             flightList.get(index).setDeparture(departure);
             System.out.println("Done...");
         }
+
         System.out.println("Arrival: " + Helper.dateToStringFormatter(flightList.get(index).getArrival()));
         String arrivalCheck = Helper.scan.nextLine();
         arrivalCheck = arrivalCheck.toLowerCase().trim();
@@ -272,6 +296,7 @@ public class BookingController {
             flightList.get(index).setArrival(arrival);
             System.out.println("Done...");
         }
+
         System.out.println("Price " + flightList.get(index).getPrice());
         String priceCheck = Helper.scan.nextLine();
         priceCheck = priceCheck.toLowerCase().trim();
@@ -281,6 +306,7 @@ public class BookingController {
             flightList.get(index).setPrice(price);
             System.out.println("Done...");
         }
+
         System.out.println("Capacity: " + flightList.get(index).getCapacity());
         String capacityCheck = Helper.scan.nextLine();
         capacityCheck = capacityCheck.toLowerCase().trim();
@@ -290,6 +316,7 @@ public class BookingController {
             flightList.get(index).setCapacity(capacity);
             System.out.println("Done...");
         }
+
     }
 
     public void editTicket() {
@@ -302,9 +329,11 @@ public class BookingController {
         System.out.println("Write (edit) if You want edit or click Enter button if  don't need to edit");
         System.out.println(
                 "------------------------------------------------------------------------------------------------------------------------------");
+
         System.out.println("-------------------------------------");
         System.out.println("   Passenger details: ");
         System.out.println("-------------------------------------");
+
         System.out.println("Full name: " + ticketList.get(index).passenger.getName());
         Helper.scan.nextLine();
         String nameCheck = Helper.scan.nextLine();
@@ -315,6 +344,7 @@ public class BookingController {
             ticketList.get(index).passenger.setFullName(name);
             System.out.println("Done...");
         }
+
         System.out.println("Passport No: " + ticketList.get(index).passenger.getPassportNo());
         String passportNoCheck = Helper.scan.nextLine();
         passportNoCheck = passportNoCheck.toLowerCase().trim();
@@ -324,6 +354,7 @@ public class BookingController {
             ticketList.get(index).passenger.setPassportNo(passportNo);
             System.out.println("Done...");
         }
+
         System.out.println("Nationality: " + ticketList.get(index).passenger.getNationality());
         String nationalityCheck = Helper.scan.nextLine();
         nationalityCheck = nationalityCheck.toLowerCase().trim();
@@ -333,6 +364,7 @@ public class BookingController {
             ticketList.get(index).passenger.setNationality(nationality);
             System.out.println("Done...");
         }
+
         System.out.println("Age: " + ticketList.get(index).passenger.getAge());
         String ageCheck = Helper.scan.nextLine();
         ageCheck = ageCheck.toLowerCase().trim();
@@ -342,9 +374,11 @@ public class BookingController {
             ticketList.get(index).passenger.setAge(age);
             System.out.println("Done...");
         }
+
         System.out.println("-------------------------------------");
         System.out.println("   Flight details: ");
         System.out.println("-------------------------------------");
+
         ticketList.get(index).flight.DisplayFlightDetailInEditTicket();
         Helper.scan.nextLine();
         String flightCheck = Helper.scan.nextLine();
@@ -356,5 +390,6 @@ public class BookingController {
             ticketList.get(index).setFlight(flightList.get(flightNo - 1));
             System.out.println("Done...");
         }
+
     }
 }
