@@ -9,6 +9,7 @@ import models.Passenger;
 import models.Ticket;
 import tools.Helper;
 import tools.Validation;
+import java.util.InputMismatchException;
 
 public class BookingController {
     ArrayList<Flight> flightList = new ArrayList<Flight>();
@@ -391,5 +392,22 @@ public class BookingController {
             System.out.println("Done...");
         }
 
+    }
+
+    public static int vi(int input) {
+
+        try {
+
+        } catch (Exception iException) {
+            // TODO: handle exception
+        }
+        // if (input == (int) input) {
+        // return input;
+        // } else {
+        // System.out.println("plz enter integer");
+        // int i= Helper.scan.nextInt();
+        // vi(i);
+        // }
+        return 6;
     }
 }
